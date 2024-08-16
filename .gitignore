@@ -1,0 +1,32 @@
+# 参考内容
+Example*.ipynb
+
+# vscode 设置
+.vscode/
+
+# 数据集不上传
+/data/
+
+# 模型不上传
+/Example3/modles/
+
+# slurm 脚本
+job_submit*
+
+# log文件
+logs/
+
+# 缓冲
+.ipynb_checkpoints/
+
+# 模型
+models*
+
+# 无关项目
+LLaMA-Factory_bk
+Qwen_huggingface
+*.zip
+
+# 输出
+outputs
+saves
