@@ -9,20 +9,22 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 教程目前由 9 个独立的案例构成：
 
 - Pytorch 基础
-  - **Tutorial1**: 通过预测房价这一简单案例展示如何使用全连接神经网络解决回归问题，并在单机单显卡上运行案例。[[链接]](Tutorial1_regression/tutorial1_regression.ipynb)
+  - **Tutorial1**: 通过预测房价这一简单案例展示如何使用全连接神经网络解决回归问题，并在单机单显卡上运行案例。[[链接]](Tutorial1_regression/tutorial1_regression.md)
 - CV 相关
-  - **Tutorial2**: 通过MNIST数据集和一个规模较小的简单CNN网络展示使用CNN进行图像分类的简单案例。[[链接]](Tutorial2_classification/tutorial2_classification.ipynb)
-  - **Tutorial3**: 实际应用和研究中通常会使用大型数据集和多卡并行，这部分使用著名的ResNet50网络和ImageNet数据集，展示在多张显卡上并行的图像分类任务。[[链接]](Tutorial3_CV/tutorial3_CV.ipynb)
+  - **Tutorial2**: 通过MNIST数据集和一个规模较小的简单CNN网络展示使用CNN进行图像分类的简单案例。[[链接]](Tutorial2_classification/tutorial2_classification.md)
+  - **Tutorial3**: 实际应用和研究中通常会使用大型数据集和多卡并行，这部分使用著名的ResNet50网络和ImageNet数据集，展示在多张显卡上并行的图像分类任务。[[链接]](Tutorial3_CV/tutorial3_CV.md)
 - 大模型相关
   - **Tutorial4**: 通过在 SCOW 平台上运行 bge-m3 模型，展示 embedding 模型的推理任务。[[链接]](Tutorial4_bge-m3/tutorial4_bge-m3.md)
   - **Tutorial5**: 通过在 SCOW 平台上运行 bge-reranker-v2-m3。[[链接]](Tutorial5_bge-reranker-v2-m3/tutorial5_bge-reranker-v2-m3.md)
  模型，展示 reranker 模型的推理任务。
-   - **Tutorial6**: 通过 Qwen2-7B-Instruct 模型，展示大模型的推理、微调、合并。[[链接]](Tutorial6_Qwen2-7B-Instruct/tutorial6_qwen2-7b.md)
+   - **Tutorial6**: 通过 Qwen2-7B-Instruct 模型，展示大模型的推理、微调、合并。[[链接]](release/Tutorial6_Qwen2-7B-Instruct/tutorial6_qwen2-7b.md)
    - **Tutorial7**: Qwen2-72B-Instruct-GPTQ-Int4 模型的推理。[[链接]](Tutorial7_Qwen2-72B-Instruct-GPTQ-Int4/tutorial7_qwen2-72b-int4.md)
    - **Tutorial8**: 在多张显卡上运行 Qwen2-72B-Instruct 模型。[[链接]](Tutorial8_Qwen2-72B-Instruct/tutorial8_Qwen2-72B-Instruct.md)
    - **Tutorial9**: stable-diffusion-3-medium 文生图任务，通过 prompt 提示生成对应的图片。[[链接]](Tutorial9_stable-diffusion-3-medium/tutorial9_stable_diffusion.md)
 
 ## 申请计算资源
+
+我们建议使用 shell 或者 JupyterLab 交互应用运行本教程，参考下面流程申请计算资源。
 
 **1. 登陆**
    
@@ -82,7 +84,7 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 
 ![alt text](figures/image-5.png)
 
-## 使用 Jupyter Lab 运行教程
+## 运行教程
 
 拷贝或克隆本项目到您的本地目录中，请按照相应章节中的说明进行操作。数据和模型已经提前下载好在公用存储下：
 
