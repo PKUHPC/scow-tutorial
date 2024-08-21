@@ -22,7 +22,7 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
    - **Tutorial8**: 在多张显卡上运行 Qwen2-72B-Instruct 模型。[[链接]](Tutorial8_Qwen2-72B-Instruct/tutorial8_Qwen2-72B-Instruct.md)
    - **Tutorial9**: stable-diffusion-3-medium 文生图任务，通过 prompt 提示生成对应的图片。[[链接]](Tutorial9_stable-diffusion-3-medium/tutorial9_stable_diffusion.md)
 
-## 申请计算资源
+## 北京大学 SCOW 平台申请计算资源
 
 **1. 登陆**
    
@@ -81,6 +81,24 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 创建成功后显示 “Running”，点击 “连接” 进入
 
 ![alt text](figures/image-5.png)
+
+
+## 教育部 XSCOW 平台申请计算资源
+
+XSCOW 是基于 SCOW 和 CraneSched 研发的算力网络融合与交易平台，我们可以通过如下网址访问：
+
+https://aigc.emic.edu.cn/
+
+登陆后，从页面最下方的 “智算合作” 可进入资源访问，我们以 “北京大学高性能计算中心” 提供的算力为例，点击进入：
+
+![alt text](figures/image-6.png)
+
+选择北京大学选项卡进入，进入后的界面与 SCOW 类似：
+
+![alt text](figures/image-7.png)
+
+与前面类似，可以通过 shell 或创建交互式应用申请相应的资源并开始计算！
+
 
 ## 使用 Jupyter Lab 运行教程
 
