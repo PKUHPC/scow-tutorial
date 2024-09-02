@@ -30,14 +30,14 @@ pip install -r requirements.txt
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com
 huggingface-cli download --resume-download Qwen/Qwen2-72B-Instruct
-mv ~/.cache/huggingface/hub/models--Qwen--Qwen2-72B-Instruct models/
+mv ~/.cache/huggingface/hub/models--Qwen--Qwen2-72B-Instruct models/ # 移动到自定义目录
 ```
 
 ## 2. 模型推理
 
 [[参考链接]](https://huggingface.co/Qwen/Qwen2-72B-Instruct-GPTQ-Int4)
 
-进行简单对话测试
+运行 python 进行简单对话：
 
 ```bash
 python qwen_test.py
@@ -62,6 +62,8 @@ pip install -e ".[torch,metrics,deepspeed,qwen]"
 ```bash
 llamafactory-cli chat qwen-chat.yaml
 ```
+
+输入 exit 结束对话。
 
 运行过程中使用 nvidia-smi 命令可以查看 GPU 运行情况。
 

@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com
 huggingface-cli download --resume-download BAAI/bge-reranker-v2-m3
-mv ~/.cache/huggingface/hub/models--BAAI--bge-reranker-v2-m3 models/
+mv ~/.cache/huggingface/hub/models--BAAI--bge-reranker-v2-m3 models/ # 移动模型到自定义的路径下
 ```
 
 ## 2. 模型使用
@@ -35,12 +35,18 @@ mv ~/.cache/huggingface/hub/models--BAAI--bge-reranker-v2-m3 models/
 
 使用 FlagEmbedding， 计算 cross similarity
 
+安装 FlagEmbedding 包：
+
 ```bash
 pip install -U FlagEmbedding
+```
+
+运行 python 脚本：
+```bash
 python cross_similarity.py
 ```
 
-或者 Huggingface Transformer
+或者使用 Huggingface Transformer 也可以调用模型：
 
 ```bash
 python cross_similarity2.py

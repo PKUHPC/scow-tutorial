@@ -31,14 +31,14 @@ pip install --upgrade pyarrow
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com
 huggingface-cli download --resume-download Qwen/Qwen2-72B-Instruct-GPTQ-Int4
-mv ~/.cache/huggingface/hub/models--Qwen--Qwen2-72B-Instruct-GPTQ-Int4 models/
+mv ~/.cache/huggingface/hub/models--Qwen--Qwen2-72B-Instruct-GPTQ-Int4 models/ # 移动到自定义目录下
 ```
 
 ## 2. 模型推理
 
 [[参考链接]](https://huggingface.co/Qwen/Qwen2-72B-Instruct-GPTQ-Int4)
 
-进行简单对话测试
+运行 python 脚本进行简单对话:
 
 ```bash
 python qwen2_test.py

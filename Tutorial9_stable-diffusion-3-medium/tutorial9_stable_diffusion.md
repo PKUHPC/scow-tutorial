@@ -39,7 +39,7 @@ mv ~/.cache/huggingface/hub/models--stabilityai--stable-diffusion-3-medium-diffu
 
 [[参考链接]](https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers/tree/main)
 
-运行下面命令进行从文字生成图像：
+运行python 文件，从文字生成图像：
 
 ```bash
 python test1.py

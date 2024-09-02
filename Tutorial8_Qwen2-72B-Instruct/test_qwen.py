@@ -1,8 +1,12 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
-device = "cuda" # the device to load the model onto
 
-model_path = "../models/models--Qwen--Qwen2-72B-Instruct/snapshots/1af63c698f59c4235668ec9c1395468cb7cd7e79"
+# 使用 GPU
+device = "cuda"
 
+# 模型路径
+model_path = "models/models--Qwen--Qwen2-72B-Instruct/snapshots/1af63c698f59c4235668ec9c1395468cb7cd7e79"
+
+# 加载模型和分词器
 model = AutoModelForCausalLM.from_pretrained(
     model_path,
     torch_dtype="auto",
@@ -10,11 +14,14 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 
+# prompt
 prompt = "什么是大模型"
 messages = [
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": prompt}
 ]
+
+# 生成回答
 text = tokenizer.apply_chat_template(
     messages,
     tokenize=False,

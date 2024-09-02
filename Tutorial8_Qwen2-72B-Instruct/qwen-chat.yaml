@@ -1,2 +1,3 @@
+# 模型路径
 model_name_or_path: ../models/models--Qwen--Qwen2-72B-Instruct/snapshots/1af63c698f59c4235668ec9c1395468cb7cd7e79
 template: qwen

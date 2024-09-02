@@ -29,14 +29,16 @@ pip install -r requirements.txt
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com
 huggingface-cli download --resume-download Qwen/Qwen2-7B-Instruct
-mv ~/.cache/huggingface/hub/models--Qwen--Qwen2-7B-Instruct models/
+mv ~/.cache/huggingface/hub/models--Qwen--Qwen2-7B-Instruct models/ # 把模型移动到自定义的目录下
 ```
 
 ## 2. 模型推理
 
+<!-- TODO 模型路径需要修改，除此以外，其余部分的模型路径均需要检查 -->
+
 [[参考链接]](https://huggingface.co/Qwen/Qwen2-7B-Instruct)
 
-进行简单对话测试
+运行 python 脚本进行简单对话
 
 ```bash
 python qwen2_7b_test.py

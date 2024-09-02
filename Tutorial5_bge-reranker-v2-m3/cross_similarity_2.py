@@ -1,14 +1,21 @@
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('../models/models--BAAI--bge-reranker-v2-m3/snapshots/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e')
-model = AutoModelForSequenceClassification.from_pretrained('../models/models--BAAI--bge-reranker-v2-m3/snapshots/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e')
+# 填写模型路径
+modle_path = 'models/models--BAAI--bge-reranker-v2-m3/snapshots/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e'
+
+# 加载模型和分词器
+tokenizer = AutoTokenizer.from_pretrained(modle_path)
+model = AutoModelForSequenceClassification.from_pretrained(modle_path)
 model.eval()
 
+# 把模型移动到显卡
 print(torch.cuda.is_available())
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
+
+# 计算相似度
 pairs = [['what is panda?', 'hi'], ['what is panda?', 'The giant panda (Ailuropoda melanoleuca), sometimes called a panda bear or simply panda, is a bear species endemic to China.']]
 with torch.no_grad():
     inputs = tokenizer(pairs, padding=True, truncation=True, return_tensors='pt', max_length=512)

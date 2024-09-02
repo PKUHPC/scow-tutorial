@@ -1,23 +1,30 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("../models/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6")
+# 加载模型和分词器
+model_path = "models/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6"
+
+tokenizer = AutoTokenizer.from_pretrained(model_path)
 
 model = AutoModelForCausalLM.from_pretrained(
-    "../models/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6",
+    model_path,
     torch_dtype="auto",
     device_map="auto"
 )
 model.eval()
 
+# 移动模型到 GPU
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
+# prompt
 prompt = "介绍一下大模型"
 messages = [
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": prompt}
 ]
+
+# 对话
 text = tokenizer.apply_chat_template(
     messages,
     tokenize=False,
