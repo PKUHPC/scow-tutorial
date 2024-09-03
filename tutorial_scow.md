@@ -33,22 +33,32 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
    
    ![alt text](figures/image-1.png)
 
-   - 运行下面命令安装 conda，建议安装 anaconda
+   - 运行下面命令安装 conda
   
   ```bash
-  # 下载Anaconda安装脚本：
-  wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2023.03-Linux-x86_64.sh
+  # 1. 获得最新的miniconda安装包；
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
-  # 验证下载的安装脚本文件是否完整
-  sha256sum Anaconda3-2023.03-Linux-x86_64.sh
+  # 2. 安装到自己的HOME目录下software/miniconda3中，这个目录在安装前不能存在，否则会报错；
+  sh Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/software/miniconda3
 
-  # 执行安装命令
-  bash Anaconda3-2023.03-Linux-x86_64.sh
+  # 3. 安装成功后可以删除安装包，节省存储空间
+  rm -f Miniconda3-latest-Linux-x86_64.sh
+
+  # 4. 将环境变量写入~/.bashrc文件中；(下面这句话，添加到~/.bashrc文件中)
+  export PATH=${HOME}/software/miniconda3/bin:$PATH
+
+  # 5. 退出重新登录或者执行以下命令，即可导入 conda 环境
+  source ~/.bashrc
+
+  # 6. 检查是否安装成功
+  conda --version
   ```
 
-  - 安装 Jupyter
+  - 创建conda环境并安装 Jupyter
   ```bash
-  conda install jupyter notebook
+  conda create -n tutorial python
+  pip install jupyter
   ```
   
   更详细的安装指南参考：[[链接1]](https://icode.pku.edu.cn/SCOW/docs/deploy/config/portal/apps/apps/jupyter) [[链接2]](https://hpc.pku.edu.cn/_book/guide/ood/interactive_jupyter.html)
