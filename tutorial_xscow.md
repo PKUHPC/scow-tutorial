@@ -112,12 +112,12 @@ wget https://gitee.com/yingli-claire/tutorial/....
 数据和模型已经提前下载好在公用存储下：
 
 - 数据
-
-[[路径]](data)
+<!-- VAR_PLACEHOLDER -->
+`/lustre/public/tutorial/data`
 
 - 模型
-
-[[路径]](models)
+<!-- VAR_PLACEHOLDER -->
+`/lustre/public/tutorial/models`
 
 ## 教程内容
 
