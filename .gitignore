@@ -33,3 +33,6 @@ saves
 
 # test
 /test
+
+# 不发布 release
+/release

@@ -75,4 +75,14 @@ llamafactory-cli chat qwen-chat.yaml
 
 运行过程中使用 nvidia-smi 命令可以查看 GPU 运行情况。
 
+## 4. 使用 Web UI
+
+上述过程也可以使用图形化的 webui 界面进行。执行下面命令，即可打开 webui 界面。为了避免路径错误，建议在加载模型、导出模型时使用绝对路径。
+
+```bash
+llamafactory-cli webui
+```
+
+![alt text](image.png)
+
 
