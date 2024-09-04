@@ -17,14 +17,12 @@ Qwen2-7B-Instruct 支持高达 131,072 个 token 的上下文长度，能够处�
 conda create -n tutorial6 python=3.9
 conda activate tutorial6
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-pip install -r requirements.txt
+pip install numpy==1.26.4 matplotlib==3.8.4 ipykernel==6.29.5 transformers==4.42.4
 ```
-
-注：使用的 torch 版本需要与 cuda 版本匹配，请查询 cuda 版本。
 
 ## 1. 下载模型
 
-在联网的机器上下载模型：
+在data shell中下载模型：
 
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com

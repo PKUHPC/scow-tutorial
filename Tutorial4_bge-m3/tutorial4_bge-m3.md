@@ -14,7 +14,7 @@ Embedding 分别计算两个句子的向量表示，使用两个向量的余弦�
 conda create -n tutorial4 python=3.9
 conda activate tutorial4
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-pip install -r requirements.txt
+pip install numpy==1.26.4 matplotlib==3.8.4 ipykernel==6.29.5 transformers==4.42.4
 ```
 
 注：使用的 torch 版本需要与 cuda 版本匹配，请查询 cuda 版本。
