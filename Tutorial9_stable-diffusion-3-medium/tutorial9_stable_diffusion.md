@@ -14,8 +14,8 @@ Stable Diffusion 是由 Stability AI 开发的一个开源的深度学习模型�
 创建conda环境
 
 ```bash
-conda create -n tutorial python=3.9
-conda activate tutorial
+conda create -n tutorial9 python=3.9
+conda activate tutorial9
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 pip install -U diffusers

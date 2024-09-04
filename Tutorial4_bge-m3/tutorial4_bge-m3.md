@@ -11,8 +11,8 @@ Embedding 分别计算两个句子的向量表示，使用两个向量的余弦�
 创建conda环境
 
 ```bash
-conda create -n tutorial python=3.9
-conda activate tutorial
+conda create -n tutorial4 python=3.9
+conda activate tutorial4
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 ```

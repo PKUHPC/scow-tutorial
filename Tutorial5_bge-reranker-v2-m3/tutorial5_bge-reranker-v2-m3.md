@@ -11,8 +11,8 @@ reranker 使用 cross similarity 来计算两个句子的相似度，把两个�
 创建conda环境
 
 ```bash
-conda create -n tutorial python=3.9
-conda activate tutorial
+conda create -n tutorial5 python=3.9
+conda activate tutorial5
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 ```

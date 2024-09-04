@@ -15,8 +15,8 @@ Qwen2-72B-Instruct-GPTQ-Int4 支持高达 131,072 个 token 的上下文长度�
 创建conda环境
 
 ```bash
-conda create -n tutorial python=3.9
-conda activate tutorial
+conda create -n tutorial7 python=3.9
+conda activate tutorial7
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 pip install --upgrade pyarrow
