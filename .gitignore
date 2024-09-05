@@ -5,7 +5,10 @@ Example*.ipynb
 .vscode/
 
 # 数据集不上传
-/data/
+/data/imagenet
+/data/kaggle_cifar10_tiny
+/data/Tutorial_2
+
 
 # 模型不上传
 /Example3/modles/
