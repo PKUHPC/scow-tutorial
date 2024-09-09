@@ -17,7 +17,7 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 
    登陆后显示 dashboard 界面：
 
-   ![alt text](figures/image.png)
+   <img src="figures/image.png"/>
 
    其中 “shell” 可用于打开命令行窗口：在 login 节点的命令行窗口可用于直接通过队列系统提交任务；在 data 节点的命令行窗口可用于数据传输和连接网络。
 
@@ -31,7 +31,7 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
    
    在数据节点进行安装
    
-   ![alt text](figures/image-1.png)
+   <img src="figures/image-1.png"/>
 
    - 运行下面命令安装 conda
   
@@ -61,63 +61,51 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
   pip install jupyter
   ```
   
-  更详细的安装指南参考：[[链接1]](https://icode.pku.edu.cn/SCOW/docs/deploy/config/portal/apps/apps/jupyter) [[链接2]](https://hpc.pku.edu.cn/_book/guide/ood/interactive_jupyter.html)
+  更详细的安装指南参考：[Scow-Jupyter](https://icode.pku.edu.cn/SCOW/docs/deploy/config/portal/apps/apps/jupyter)
 
 **3. 创建 Jupyter Lab 应用**
    
    
    点击 dashboard 上的 “交互式应用”，点击 “创建应用”, 点击 “JupyterLab”，填写相应的资源，点击最下方的 “提交”，进行创建。
 
-![alt text](figures/image-2.png)
+<img src="figures/image-2.png"/>
 
-![alt text](figures/image-3.png)
+<img src="figures/image-3.png"/>
 
-![alt text](figures/image-4.png)
+<img src="figures/image-4.png"/>
 
 创建成功后显示 “Running”，点击 “连接” 进入
 
-![alt text](figures/image-5.png)
+<img src="figures/image-5.png"/>
 
 
 ## 在 SCOW 平台上运行 Tutorial 0
 
-**1. 下载完整教程**
+**1. 获取教程所需文件**
 
-<!-- TODO 替换下载链接 -->
-
-可以使用 git clone 或 wget 下载教程。
-
-使用 git clone 下载教程：
+<!-- VAR_PLACEHOLDER 替换下载链接 -->
 
 ```bash
-git clone https://gitee.com/yingli-claire/tutorial.git
-# 欢迎大家提 issues
-```
-
-使用 wget 命令下载教程
-
-```bash
-wget https://gitee.com/yingli-claire/tutorial/....
+wget https://yeht.xyz/tutorial/tutorial.tar.gz
+tar -xzf tutorial.tar.gz
 ```
 
 **2. 运行 Tutorial 0**
 
-在下载教程中打开 Tutorial0_hello_world 文件夹下的 tutorial0_hello_world.ipynb 文件。可以看到文件中有 markdown 单元格和 python 代码单元格。用鼠标点击选中单元格后，“Ctrl + Enter” 可运行单元格，markdown 在运行后起到渲染的效果，python 会在下方输出结果。注意：苹果电脑使用的快捷键会有所不同。
+在所下载的教程文件夹中打开 tutorial/Tutorial0_hello_world/tutorial0_hello_world.ipynb 文件。可以看到文件中有 markdown 单元格和 python 代码单元格。用鼠标点击选中单元格后，“Ctrl + Enter” 可运行单元格，markdown 在运行后起到渲染的效果，python 会在下方输出结果。注意：苹果电脑使用的快捷键会有所不同。
 
-![alt text](figures/image-8.png)
+<img src="figures/image-8.png"/>
 
 **3. Jupyter Lab 中使用命令行**
 
 除了在 SCOW 中使用 shell 外，还可以使用 Jupyter Lab 提供的命令行终端。
 
-![alt text](figures/image-9.png)
+<img src="figures/image-9.png"/>
 
 
 ## 数据与模型路径
 
-<!-- TODO 数据与模型路径 -->
-
-数据和模型已经提前下载好在公用存储下：
+部分集群中, 数据和模型已经提前下载好在公用存储下：
 
 - 数据
 <!-- VAR_PLACEHOLDER -->
@@ -127,23 +115,24 @@ wget https://gitee.com/yingli-claire/tutorial/....
 <!-- VAR_PLACEHOLDER -->
 `/lustre/public/tutorial/models`
 
+如果您所用的集群中不含上述目录，则需按后续教程中的提示进行下载
+
 ## 教程内容
 
 教程目前由 9 个独立的案例构成：
 
-- Pytorch 基础
-  - **Tutorial1**: 通过预测房价这一简单案例展示如何使用全连接神经网络解决回归问题，并在单机单显卡上运行案例。[[链接]](Tutorial1_regression/tutorial1_regression.ipynb)
-- CV 相关
-  - **Tutorial2**: 通过MNIST数据集和一个规模较小的简单CNN网络展示使用CNN进行图像分类的简单案例。[[链接]](Tutorial2_classification/tutorial2_classification.ipynb)
-  - **Tutorial3**: 实际应用和研究中通常会使用大型数据集和多卡并行，这部分使用著名的ResNet50网络和ImageNet数据集，展示在多张显卡上并行的图像分类任务。[[链接]](Tutorial3_CV/tutorial3_CV.ipynb)
-- 大模型相关
-  - **Tutorial4**: 通过在 SCOW 平台上运行 bge-m3 模型，展示 embedding 模型的推理任务。[[链接]](Tutorial4_bge-m3/tutorial4_bge-m3.ipynb)
-  - **Tutorial5**: 通过在 SCOW 平台上运行 bge-reranker-v2-m3。[[链接]](Tutorial5_bge-reranker-v2-m3/tutorial5_bge-reranker-v2-m3.ipynb)
- 模型，展示 reranker 模型的推理任务。
-   - **Tutorial6**: 通过 Qwen2-7B-Instruct 模型，展示大模型的推理、微调、合并。[[链接]](Tutorial6_Qwen2-7B-Instruct/tutorial6_qwen2-7b.ipynb)
-   - **Tutorial7**: Qwen2-72B-Instruct-GPTQ-Int4 模型的推理。[[链接]](Tutorial7_Qwen2-72B-Instruct-GPTQ-Int4/tutorial7_qwen2-72b-int4.ipynb)
-   - **Tutorial8**: 在多张显卡上运行 Qwen2-72B-Instruct 模型。[[链接]](Tutorial8_Qwen2-72B-Instruct/tutorial8_Qwen2-72B-Instruct.ipynb)
-   - **Tutorial9**: stable-diffusion-3-medium 文生图任务，通过 prompt 提示生成对应的图片。[[链接]](Tutorial9_stable-diffusion-3-medium/tutorial9_stable_diffusion.ipynb)
+### Pytorch 基础
+  - **[Tutorial1](Tutorial1_regression/tutorial1_regression.ipynb)**: 通过预测房价这一简单案例展示如何使用全连接神经网络解决回归问题，并在单机单显卡上运行案例。
+### CV 相关
+  - **[Tutorial2](Tutorial2_classification/tutorial2_classification.ipynb)**: 通过MNIST数据集和一个规模较小的简单CNN网络展示使用CNN进行图像分类的简单案例。
+  - **[Tutorial3](Tutorial3_CV/tutorial3_CV.ipynb)**: 实际应用和研究中通常会使用大型数据集和多卡并行，这部分使用著名的ResNet50网络和ImageNet数据集，展示在多张显卡上并行的图像分类任务。
+### 大模型相关
+  - **[Tutorial4](Tutorial4_bge-m3/tutorial4_bge-m3.ipynb)**: 通过在 SCOW 平台上运行 bge-m3 模型，展示 embedding 模型的推理任务。
+  - **[Tutorial5](Tutorial5_bge-reranker-v2-m3/tutorial5_bge-reranker-v2-m3.ipynb)**: 在 SCOW 平台上运行 bge-reranker-v2-m3。
+  - **[Tutorial6](Tutorial6_Qwen2-7B-Instruct/tutorial6_qwen2_7b.ipynb)**: 通过 Qwen2-7B-Instruct 模型，展示大模型的推理、微调、合并。
+  - **[Tutorial7](Tutorial7_Qwen2-72B-Instruct-GPTQ-Int4/tutorial7_qwen2-72b-int4.ipynb)**: Qwen2-72B-Instruct-GPTQ-Int4 模型的推理。
+  - **[Tutorial8](Tutorial8_Qwen2-72B-Instruct/tutorial8_Qwen2-72B-Instruct.ipynb)**: 在多张显卡上运行 Qwen2-72B-Instruct 模型。
+  - **[Tutorial9](Tutorial9_stable-diffusion-3-medium/tutorial9_stable_diffusion.ipynb)**: stable-diffusion-3-medium 文生图任务，通过 prompt 提示生成对应的图片。
 
 ---
 

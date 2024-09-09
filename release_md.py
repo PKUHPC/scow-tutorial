@@ -9,8 +9,16 @@ HTML_CONTENT_PLACE_HOLDER = 'HTML_CONTENT_PLACE_HOLDER'
 html_template = f"""<html>
 <head>
 <meta charset="utf-8"/></head>
+<style>
+img {{
+  max-width:700px;
+  padding:14px;
+}}
+</style>
 <body>
+<div style="margin:0 auto;max-width:800px">
 {HTML_CONTENT_PLACE_HOLDER}
+</div>
 </body>
 </html>"""
 
