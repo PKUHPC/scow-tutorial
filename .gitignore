@@ -38,4 +38,4 @@ saves
 /test
 
 # 不发布 release
-/release
+/release_web/
