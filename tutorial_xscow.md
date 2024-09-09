@@ -58,6 +58,7 @@ https://aigc.emic.edu.cn/
   ```
 
   创建conda环境并安装 Jupyter
+
   ```bash
   conda create -n tutorial0 python
   conda activate tutorial0
@@ -83,8 +84,9 @@ https://aigc.emic.edu.cn/
 **1. 获取教程所需文件**
 
 <!-- VAR_PLACEHOLDER 替换下载链接 -->
+
 ```bash
-wget https://yeht.xyz/tutorial/tutorial.tar.gz
+wget https://scow.pku.edu.cn/tutorial/tutorial.tar.gz
 tar -xzf tutorial.tar.gz
 ```
 
