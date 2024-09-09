@@ -32,69 +32,65 @@ https://aigc.emic.edu.cn/
 
 我们的教程是使用 Jupyter Lab 运行的，所以需要在 “交互式应用” 中创建 Jupter Lab 应用。但在创建 Jupter Lab 应用之前，需要先在 “shell” 中安装 jupyter，才能成功创建。
 
-**2. 安装 Jupyter**
-   
-   通过 shell 在数据节点进行安装:
+**2. 安装 Conda**   
+   <img src="figures/image-1.png"/>
 
-   - 运行下面命令安装 conda，建议安装 anaconda
-  
+   在联网的数据节点运行下面命令安装 conda
+
   ```bash
-  # 下载Anaconda安装脚本：
-  wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2023.03-Linux-x86_64.sh
+  # 1. 获得最新的miniconda安装包；
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
-  # 验证下载的安装脚本文件是否完整
-  sha256sum Anaconda3-2023.03-Linux-x86_64.sh
+  # 2. 安装到自己的HOME目录下software/miniconda3中，这个目录在安装前不能存在，否则会报错；
+  sh Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/software/miniconda3
 
-  # 执行安装命令
-  bash Anaconda3-2023.03-Linux-x86_64.sh
+  # 3. 安装成功后可以删除安装包，节省存储空间
+  rm -f Miniconda3-latest-Linux-x86_64.sh
+
+  # 4. 将环境变量写入~/.bashrc文件中；(下面这句话，添加到~/.bashrc文件中)
+  export PATH=${HOME}/software/miniconda3/bin:$PATH
+
+  # 5. 退出重新登录或者执行以下命令，即可导入 conda 环境
+  source ~/.bashrc
+
+  # 6. 检查是否安装成功
+  conda --version
   ```
 
-  - 安装 Jupyter
+  创建conda环境并安装 Jupyter
   ```bash
-  conda install jupyter notebook
+  conda create -n tutorial0 python
+  conda activate tutorial0
+  pip install notebook jupyterlab
   ```
-  
-  更详细的安装指南参考：[Scow-Jupyter](https://icode.pku.edu.cn/SCOW/docs/deploy/config/portal/apps/apps/jupyter)
 
 **3. 创建 Jupyter Lab 应用**
-   
-   点击 dashboard 上的 “交互式应用”，点击 “创建应用”, 点击 “JupyterLab”，填写相应的资源，点击最下方的 “提交”，进行创建。
+点击 dashboard 上的 “交互式应用”，点击 “创建应用”, 点击 “JupyterLab”，填写相应的资源，点击最下方的 “提交”，进行创建。
 
-<img src="figures/image-10.png"/>
+<img src="figures/image-2.png"/>
 
-<img src="figures/image-11.png"/>
+<img src="figures/image-3.png"/>
 
-<img src="figures/image-12.png"/>
+<img src="figures/image-4.png"/>
 
 创建成功后显示 “Running”，点击 “连接” 进入
 
-<img src="figures/image-13.png"/>
+<img src="figures/image-5.png"/>
 
 
-## 在 XSCOW 平台上运行 Tutorial 0
+## 在 SCOW 平台上运行 Tutorial 0
 
-**1. 下载完整教程**
+**1. 获取教程所需文件**
 
-<!-- TODO 替换下载链接 -->
-
-可以使用 git clone 或 wget 下载教程。
-
-使用 git clone 下载教程：
-
+<!-- VAR_PLACEHOLDER 替换下载链接 -->
 ```bash
-git clone https://gitee.com/yingli-claire/tutorial.git
-# 欢迎大家提 issues
-```
-
-使用 wget 命令下载教程
-
-```bash
-wget https://gitee.com/yingli-claire/tutorial/....
+wget https://yeht.xyz/tutorial/tutorial.tar.gz
+tar -xzf tutorial.tar.gz
 ```
 
 **2. 运行 Tutorial 0**
 
-在下载教程中打开 Tutorial0_hello_world 文件夹下的 tutorial0_hello_world.ipynb 文件。可以看到文件中有 markdown 单元格和 python 代码单元格。用鼠标点击选中单元格后，“Ctrl + Enter” 可运行单元格，markdown 在运行后起到渲染的效果，python 会在下方输出结果。注意：苹果电脑使用的快捷键会有所不同。
+在所下载的教程文件夹中打开 tutorial/Tutorial0_hello_world/tutorial0_hello_world.ipynb 文件。可以看到文件中有 markdown 单元格和 python 代码单元格。用鼠标点击选中单元格后，“Ctrl + Enter” 可运行单元格，markdown 在运行后起到渲染的效果，python 会在下方输出结果。注意：苹果电脑使用的快捷键会有所不同。
 
 <img src="figures/image-8.png"/>
 
@@ -107,9 +103,7 @@ wget https://gitee.com/yingli-claire/tutorial/....
 
 ## 数据与模型路径
 
-<!-- TODO 数据与模型路径 -->
-
-数据和模型已经提前下载好在公用存储下：
+部分集群中, 数据和模型已经提前下载好在公用存储下：
 
 - 数据
 <!-- VAR_PLACEHOLDER -->
@@ -119,16 +113,20 @@ wget https://gitee.com/yingli-claire/tutorial/....
 <!-- VAR_PLACEHOLDER -->
 `/lustre/public/tutorial/models`
 
+如果您所用的集群中不含上述目录，则需按后续教程中的提示进行下载
+
 ## 教程内容
 
 教程目前由 9 个独立的案例构成：
 
-#### Pytorch 基础
+### Pytorch 基础
   - **[Tutorial1](Tutorial1_regression/tutorial1_regression.ipynb)**: 通过预测房价这一简单案例展示如何使用全连接神经网络解决回归问题，并在单机单显卡上运行案例。
-#### CV 相关
+
+### CV 相关
   - **[Tutorial2](Tutorial2_classification/tutorial2_classification.ipynb)**: 通过MNIST数据集和一个规模较小的简单CNN网络展示使用CNN进行图像分类的简单案例。
   - **[Tutorial3](Tutorial3_CV/tutorial3_CV.ipynb)**: 实际应用和研究中通常会使用大型数据集和多卡并行，这部分使用著名的ResNet50网络和ImageNet数据集，展示在多张显卡上并行的图像分类任务。
-#### 大模型相关
+
+### 大模型相关
   - **[Tutorial4](Tutorial4_bge-m3/tutorial4_bge-m3.ipynb)**: 通过在 SCOW 平台上运行 bge-m3 模型，展示 embedding 模型的推理任务。
   - **[Tutorial5](Tutorial5_bge-reranker-v2-m3/tutorial5_bge-reranker-v2-m3.ipynb)**: 在 SCOW 平台上运行 bge-reranker-v2-m3。
   - **[Tutorial6](Tutorial6_Qwen2-7B-Instruct/tutorial6_qwen2_7b.ipynb)**: 通过 Qwen2-7B-Instruct 模型，展示大模型的推理、微调、合并。

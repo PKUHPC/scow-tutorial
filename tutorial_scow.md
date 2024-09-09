@@ -27,14 +27,11 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 
    我们的教程是使用 Jupyter Lab 运行的，所以需要在 “交互式应用” 中创建 Jupter Lab 应用。但在创建 Jupter Lab 应用之前，需要先在 “shell” 中安装 jupyter，才能成功创建。
 
-**2. 安装 Jupyter**
-   
-   在数据节点进行安装
-   
+**2. 安装 Conda**   
    <img src="figures/image-1.png"/>
 
-   - 运行下面命令安装 conda
-  
+   在联网的数据节点运行下面命令安装 conda
+
   ```bash
   # 1. 获得最新的miniconda安装包；
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -55,18 +52,15 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
   conda --version
   ```
 
-  - 创建conda环境并安装 Jupyter
+  创建conda环境并安装 Jupyter
   ```bash
-  conda create -n tutorial python
-  pip install jupyter
+  conda create -n tutorial0 python
+  conda activate tutorial0
+  pip install notebook jupyterlab
   ```
-  
-  更详细的安装指南参考：[Scow-Jupyter](https://icode.pku.edu.cn/SCOW/docs/deploy/config/portal/apps/apps/jupyter)
 
 **3. 创建 Jupyter Lab 应用**
-   
-   
-   点击 dashboard 上的 “交互式应用”，点击 “创建应用”, 点击 “JupyterLab”，填写相应的资源，点击最下方的 “提交”，进行创建。
+点击 dashboard 上的 “交互式应用”，点击 “创建应用”, 点击 “JupyterLab”，填写相应的资源，点击最下方的 “提交”，进行创建。
 
 <img src="figures/image-2.png"/>
 
@@ -84,7 +78,6 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 **1. 获取教程所需文件**
 
 <!-- VAR_PLACEHOLDER 替换下载链接 -->
-
 ```bash
 wget https://yeht.xyz/tutorial/tutorial.tar.gz
 tar -xzf tutorial.tar.gz
@@ -123,9 +116,11 @@ tar -xzf tutorial.tar.gz
 
 ### Pytorch 基础
   - **[Tutorial1](Tutorial1_regression/tutorial1_regression.ipynb)**: 通过预测房价这一简单案例展示如何使用全连接神经网络解决回归问题，并在单机单显卡上运行案例。
+
 ### CV 相关
   - **[Tutorial2](Tutorial2_classification/tutorial2_classification.ipynb)**: 通过MNIST数据集和一个规模较小的简单CNN网络展示使用CNN进行图像分类的简单案例。
   - **[Tutorial3](Tutorial3_CV/tutorial3_CV.ipynb)**: 实际应用和研究中通常会使用大型数据集和多卡并行，这部分使用著名的ResNet50网络和ImageNet数据集，展示在多张显卡上并行的图像分类任务。
+
 ### 大模型相关
   - **[Tutorial4](Tutorial4_bge-m3/tutorial4_bge-m3.ipynb)**: 通过在 SCOW 平台上运行 bge-m3 模型，展示 embedding 模型的推理任务。
   - **[Tutorial5](Tutorial5_bge-reranker-v2-m3/tutorial5_bge-reranker-v2-m3.ipynb)**: 在 SCOW 平台上运行 bge-reranker-v2-m3。
