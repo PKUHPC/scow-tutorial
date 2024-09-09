@@ -39,3 +39,4 @@ saves
 
 # 不发布 release
 /release_web/
+/release_pdf/
