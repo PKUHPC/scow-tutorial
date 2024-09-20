@@ -70,8 +70,6 @@ https://aigc.emic.edu.cn/
 
 <img src="figures/image-2.png"/>
 
-<img src="figures/image-3.png"/>
-
 <img src="figures/image-4.png"/>
 
 创建成功后显示 “Running”，点击 “连接” 进入
@@ -79,7 +77,7 @@ https://aigc.emic.edu.cn/
 <img src="figures/image-5.png"/>
 
 
-## 在 SCOW 平台上运行 Tutorial 0
+## 在 XSCOW 平台上运行 Tutorial 0
 
 **1. 获取教程所需文件**
 

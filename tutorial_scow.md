@@ -8,18 +8,15 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 
 下面我们首先介绍如何在 SCOW 平台上申请计算资源，然后通过简单案例 Tutorial 0 介绍如何在 SCOW 平台上进行计算，最后是 AI 相关的教程介绍。 
 
-## 北京大学 SCOW 平台申请计算资源
+## SCOW 平台申请计算资源
 
 **1. 登陆**
-   
-   网址：
-   https://scow.pku.edu.cn
 
    登陆后显示 dashboard 界面：
 
    <img src="figures/image.png"/>
 
-   其中 “shell” 可用于打开命令行窗口：在 login 节点的命令行窗口可用于直接通过队列系统提交任务；在 data 节点的命令行窗口可用于数据传输和连接网络。
+   其中 “shell” 可用于打开联网的命令行窗口。
 
    “交互式应用” 可以打开桌面窗口、Matlab、RStudio、Jupyter notebook、Jupter Lab 等交互式应用。
 
@@ -30,7 +27,7 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 **2. 安装 Conda**   
    <img src="figures/image-1.png"/>
 
-   在联网的数据节点运行下面命令安装 conda
+   在联网的命令行运行下面命令安装 conda
 
   ```bash
   # 1. 获得最新的miniconda安装包；
@@ -61,11 +58,10 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
   ```
 
 **3. 创建 Jupyter Lab 应用**
+
 点击 dashboard 上的 “交互式应用”，点击 “创建应用”, 点击 “JupyterLab”，填写相应的资源，点击最下方的 “提交”，进行创建。
 
 <img src="figures/image-2.png"/>
-
-<img src="figures/image-3.png"/>
 
 <img src="figures/image-4.png"/>
 
