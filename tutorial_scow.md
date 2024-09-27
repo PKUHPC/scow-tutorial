@@ -77,7 +77,7 @@ SCOW（Super Computing On Web）是一个基于Web的超算门户和管理系统
 <!-- VAR_PLACEHOLDER 替换下载链接 -->
 
 ```bash
-wget https://scow.pku.edu.cn//tutorial/tutorial.tar.gz
+wget https://pkuscow.com/tutorial/scow/tutorial.tar.gz
 tar -xzf tutorial.tar.gz
 ```
 
