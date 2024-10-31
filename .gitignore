@@ -28,6 +28,7 @@ models*
 # 无关项目
 LLaMA-Factory_bk
 Qwen_huggingface
+LLaMA-Factory
 *.zip
 
 # 输出
