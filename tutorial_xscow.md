@@ -133,7 +133,7 @@ tar -xzf tutorial.tar.gz
 
 ## 教程内容
 
-教程目前由 9 个独立的案例构成：
+教程目前由 10 个独立的案例构成：
 
 ### Pytorch 基础
   - **[Tutorial1](Tutorial1_regression/tutorial1_regression.ipynb)**: 通过预测房价这一简单案例展示如何使用全连接神经网络解决回归问题，并在单机单显卡上运行案例。
@@ -149,6 +149,9 @@ tar -xzf tutorial.tar.gz
   - **[Tutorial7](Tutorial7_Qwen2-72B-Instruct-GPTQ-Int4/tutorial7_qwen2-72b-int4.ipynb)**: Qwen2-72B-Instruct-GPTQ-Int4 模型的推理。
   - **[Tutorial8](Tutorial8_Qwen2-72B-Instruct/tutorial8_Qwen2-72B-Instruct.ipynb)**: 在多张显卡上运行 Qwen2-72B-Instruct 模型。
   - **[Tutorial9](Tutorial9_stable-diffusion-3-medium/tutorial9_stable_diffusion.ipynb)**: stable-diffusion-3-medium 文生图任务，通过 prompt 提示生成对应的图片。
+
+### 使用其它方式提交作业
+  - **[Tutorial10](Tutorial10_mandelbrot/tutorial10_mandelbrot.ipynb)**: 通过“提交作业”面板提交并行计算任务。
 
 ---
 
