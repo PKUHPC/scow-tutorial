@@ -55,9 +55,13 @@ find ./release_web/ -maxdepth 1 -type f -name "*.html" | while read -r html_file
     mv "${pdf_file}" "./release_pdf/"
 done
 
-# pdf合并
+# PDF 合并
 find "./release_pdf/" -maxdepth 1 -type f -name "*.pdf" | while read -r pdf_file; do
-    pdftk "${pdf_file}" ./release_pdf/tutorials/*.pdf cat output "${pdf_file}.merge.pdf"
+    # 获取排序后的教程 PDF 文件列表，存储在数组 tutorial_pdfs 中
+    mapfile -t tutorial_pdfs < <(find "./release_pdf/tutorials/" -maxdepth 1 -type f -name "*.pdf" | sort -V)
+    
+    # 使用 pdftk 合并 pdf_file 和排序后的教程 PDF 文件
+    pdftk "${pdf_file}" "${tutorial_pdfs[@]}" cat output "${pdf_file}.merge.pdf"
     rm -rf "${pdf_file}"
     mv "${pdf_file}.merge.pdf" "${pdf_file}"
 done
