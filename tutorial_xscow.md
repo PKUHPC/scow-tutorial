@@ -16,6 +16,10 @@ XSCOW 是基于 SCOW 和 CraneSched 研发的算力网络融合与交易平台�
 
 https://aigc.emic.edu.cn/
 
+选择所在学校，然后页面会自动跳转到学校的登录界面。
+
+<img src="figures/image-14.png"/>
+
 登陆后，从页面最下方的 “智算合作” 可进入资源访问，可选择任一合作节点。
 
 <img src="figures/image-6.png"/>
