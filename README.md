@@ -3,8 +3,8 @@
 所有变量占位附近会标注"VAR_PLACEHOLDER"
 
 ## 生成web页面
-
 ```bash
+# 用Ubuntu 20.04.6 LTS系统
 pip install notebook beautifulsoup4
 conda install pandoc
 conda install -c conda-forge parallel 
