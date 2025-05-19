@@ -1,6 +1,5 @@
 # tutorial
-## 变量占位
-所有变量占位附近会标注"VAR_PLACEHOLDER"
+SCOW HPC和XSCOW HPC的教程
 
 ## 生成web页面
 ```bash
