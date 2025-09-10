@@ -1,0 +1,62 @@
+为了后续机器学习训练，建议用含有pytorch的pytorch:2.7.1-cuda12.8-cudnn9-devel 公共镜像。
+运行命令为：${SCOW_AI_ALGORITHM_PATH}/bin/code-server
+添加算法选项为：code-server 4.99.4-linux-amd64
+提交。
+
+conda create -n demo  #创建conda虚拟环境，名为demo
+
+conda init #初始化conda
+
+source ~/.bashrc #刷新终端
+
+conda activate demo #进入demo环境
+
+conda install -c conda-forge git
+
+
+git clone https://github.com/wondertrader/wtpy.git  #如果无法连接就换用gitee的相应网址
+
+cd wtpy
+
+python setup.py install
+
+cd demos/cta_stk_bt
+
+pip install cssselect
+pip install lxml  
+pip install pandas  #这是运行python runBT.py 需要的包。demos中其他程序运行的时候报错显示需要什么包再pip install 包
+
+python runBT.py
+
+{输出类似于：
+
+
+[09.10 09:27:43 - debug] Tradingday 20191022 ends
+[09.10 09:27:43 - debug] Tradingday 20191023 begins
+[09.10 09:27:43 - debug] Tradingday 20191023 ends
+[09.10 09:27:43 - debug] Tradingday 20191024 begins
+[09.10 09:27:43 - debug] Tradingday 20191024 ends
+[09.10 09:27:43 - debug] Tradingday 20191025 begins
+[09.10 09:27:43 - debug] Tradingday 20191025 ends
+[09.10 09:27:43 - debug] Tradingday 20191028 begins
+[09.10 09:27:43 - debug] Tradingday 20191028 ends
+[09.10 09:27:43 - debug] Tradingday 20191029 begins
+[09.10 09:27:43 - debug] Tradingday 20191029 ends
+[09.10 09:27:43 - debug] Tradingday 20191030 begins
+[09.10 09:27:43 - debug] Tradingday 20191030 ends
+[09.10 09:27:43 - debug] Tradingday 20191031 begins
+[09.10 09:27:43 - debug] Tradingday 20191031 ends
+[09.10 09:27:43 - info ] All back data replayed, replaying done
+[09.10 09:27:43 - info ] Strategy has been scheduled 9648 times, totally taking 331167 us, 34.325 us each time
+[09.10 09:27:43 - debug] Notify strategy the end of backtest
+start PnL analyzing for strategy pydt_SH510300……
+fund logs loaded……
+anayzing fund data……
+PnL analyzing of strategy pydt_SH510300 done
+press any key to exit
+}
+然后该回测程序runBT.py在 cta_stk_bt文件夹下生成一个Strategy[pydt_SH510300]_PnLAnalyzing_20190102_20191031.xlsx文件，为回测分析报告，即为回测成功。
+
+                                                                                                                        作者: 孙卓林; 龙汀汀
+
+                                                                                                            联系方式: Edmond_20211225@163.com; l.tingting@pku.edu.cn
