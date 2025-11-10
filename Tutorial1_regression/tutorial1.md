@@ -25,11 +25,11 @@
 
 在跳转到的页面中点击进入
 
-![alt text](assets/image-5.png)
+![alt text](assets/image-10.png)
 
 进到vscode应用中打开terminal
 
-![alt text](assets/image-13.png)
+![alt text](assets/image-11.png)
 
 运行下面的命令创建文件夹、配置环境
 ```shell
