@@ -1,0 +1,100 @@
+# Tutorial0: 在SCOW超算和智算平台配置Python环境
+
+* 集群类型：超算平台和智算平台
+* 所需镜像：app-store-images.pku.edu.cn/pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel
+* 所需模型：无
+* 所需数据集：无
+* 所需资源：根据需求申请单机单卡，或单机多卡，或多机多卡
+* 目标：本节旨在向用户演示如何分别在SCOW各平台配置Python环境，这是后续教程的基础环境，具体来说在SCOW超算平台中，我们安装miniconda以创建隔离的Python环境；在SCOW智算平台中，我们提供的基础镜像一般已经包含Python环境，只需验证Python环境即可
+
+## 1、SCOW超算平台
+### 1.1、打开shell
+首先进入超算平台
+
+![alt text](assets/image.png)
+
+点击Shell->未名二号->wm2-data01进入shell
+
+![alt text](assets/image-1.png)
+
+会进入以下界面，后续安装conda以及创建环境都在此页面完成
+
+![alt text](assets/image-2.png)
+
+### 1.2、安装conda
+Conda 是一个开源的包管理和环境管理系统。它用于安装和管理软件包及其依赖项，同时允许用户创建独立的环境，以便在一个系统上运行多个项目。在命令行终端中运行如下命令以安装 conda：
+```shell
+# 1. 获得最新的miniconda安装包；
+wget https://repo.anaconda.com/miniconda/Miniconda3-py313_25.9.1-1-Linux-x86_64.sh
+
+# 2. 安装
+chmod +x Miniconda3-py313_25.9.1-1-Linux-x86_64.sh
+./Miniconda3-py313_25.9.1-1-Linux-x86_64.sh  #最后选项要填yes
+
+# 3. 安装成功后可以删除安装包，节省存储空间
+rm -f Miniconda3-py313_25.9.1-1-Linux-x86_64.sh
+
+# 4. 执行以下命令，即可导入 conda 环境
+source ~/.bashrc
+
+# 5. 检查是否安装成功
+conda --version
+
+```
+
+### 1.3、创建环境
+运行下面的命令创建conda环境
+```shell
+# python版本可按需填写
+conda create -n tutorial0 python==3.10
+conda activate tutorial0
+```
+
+运行命令`python --version`，可以看到python版本，已经具备python环境
+
+![alt text](assets/image-3.png)
+
+运行命令`python -c "print('helloworld')"`，能够成功打印
+
+![alt text](assets/image-4.png)
+
+
+## 2、SCOW智算平台
+### 2.1、创建应用
+首先进入智算平台
+
+![alt text](assets/image-5.png)
+
+点击作业->应用，选择vscode应用
+
+![alt text](assets/image-6.png)
+![alt text](assets/image-7.png)
+
+在创建应用中，选择远程镜像，填写教程开头给出的镜像地址
+
+![alt text](assets/image-8.png)
+
+点击添加算法，选择公共算法->code-server->4.99.4-linux-amd64，点击修改默认命令，并填入`${SCOW_AI_ALGORITHM_PATH}/bin/code-server`
+
+![alt text](assets/image-9.png)
+
+按需填写单节点加速卡卡数以及最长运行时间，本教程仅为示例因此保留默认值，最后点击提交
+
+![alt text](assets/image-10.png)
+
+在跳转的页面中点击进入即可进入应用
+
+![alt text](assets/image-11.png)
+
+### 2.2、环境验证
+进入应用后，打开终端
+
+![alt text](assets/image-12.png)
+
+运行命令`python --version`，可以看到python版本，已经具备python环境
+
+![alt text](assets/image-13.png)
+
+运行命令`python -c "print('helloworld')"`，能够成功打印
+
+![alt text](assets/image-14.png)
