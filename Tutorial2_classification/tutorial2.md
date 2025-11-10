@@ -16,7 +16,7 @@
 
 ![alt text](assets/image.png)
 
-点击交互式应用->创建应用进入创建界面，选择vscode应用
+点击交互式应用->未名二号->创建应用进入创建界面，选择vscode应用
 
 ![alt text](assets/image-1.png)
 ![alt text](assets/image-2.png)
