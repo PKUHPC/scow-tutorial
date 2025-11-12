@@ -17,6 +17,7 @@
 
 ## 2、训练模块单机单卡/多卡训练
 在scow-ai网页中点击作业->训练
+
 ![alt text](assets/image-1.png)
 
 填写训练所需字段：
@@ -60,31 +61,40 @@ export_legacy_format: false
 ![alt text](assets/image-2.png)
 
 填写加速卡卡数，卡数与模型大小有关，并且卡数越多，相同模型大小情况下，训练速度越快。这里填写2，点击提交
+
 ![alt text](assets/image-3.png)
 
 训练过程中点击详情->日志
+
 ![alt text](assets/image-4.png)
 ![alt text](assets/image-5.png)
 
 可以看到训练日志
+
 ![alt text](assets/image-6.png)
 
 训练完成之后进入作业目录可以看到训练完成的新模型在目录中，微调后的模型完整路径一般为`[家目录]/scow/ai/appData/[作业名]/llama-factory-merged`，注意最后的`llama-factory-merged`，复制该路径便于后续测试
+
 ![alt text](assets/image-7.png)
 ![alt text](assets/image-8.png)
 
 ## 3、推理验证
 得到微调后的模型完整路径，进行推理验证微调是否成功，使用nextchat应用
+
 ![alt text](assets/image-9.png)
 
 选择默认镜像，添加挂载点，填写微调后的模型完整路径，添加环境变量`SCOW_AI_MODEL_PATH`，同样填写微调后的模型完整路径
+
 ![alt text](assets/image-10.png)
 
 选择一张加速卡，点击提交
+
 ![alt text](assets/image-11.png)
 
-点击连接
+点击进入
+
 ![alt text](assets/image-12.png)
 
 在聊天框进行对话，可以发现模型回答达到预期效果
+
 ![alt text](assets/image-13.png)
