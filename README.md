@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # tutorial
 SCOW HPC和XSCOW HPC的教程
 
@@ -12,3 +13,6 @@ sudo apt-get install texlive-xetex google-chrome-stable pdftk
 
 bash release.sh
 ```
+=======
+# scow-tutorial
+>>>>>>> a77a4e477a08d740f3d62b03ecd85eec0c8a5805
