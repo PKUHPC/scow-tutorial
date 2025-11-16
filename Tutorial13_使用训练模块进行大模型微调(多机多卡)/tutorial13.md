@@ -12,11 +12,12 @@
 
 这里简单介绍数据集，部分数据如下所示，目的是希望微调后的模型自我认同为北京大学开发的AI助手，可与最终的推理验证进行对照
 
-![alt text](image.png)
+![alt text](assets/image.png)
 
 ## 2、训练模块多机多卡训练
 在scow-ai网页中点击作业->训练
-![alt text](image-1.png)
+
+![alt text](assets/image-1.png)
 
 填写训练所需字段：
 * 镜像来源选择远程镜像
@@ -57,45 +58,45 @@ export_legacy_format: false
 * 数据集选择 我的数据集->identity
 * 模型选择 公共模型->Qwen2.5-1.5B-Instruct(如果您使用的集群没有该模型，请参考[Tutorial16](../Tutorial16_下载模型/tutorial16_下载模型.md)下载模型，其中tutorial16中的1.1.6步骤使用`modelscope download --model Qwen/Qwen2.5-1.5B-Instruct --local_dir ./Qwen/Qwen/Qwen2.5-1.5B-Instruct`)
 
-![alt text](image-2.png)
+![alt text](assets/image-2.png)
 
 填写对应资源，开启分布式训练，框架选择pytorch，节点为2，填写加速卡卡数，卡数与模型大小有关，并且卡数越多，相同模型大小情况下，训练速度越快。这里填写2，点击提交
 
-![alt text](image-3.png)
+![alt text](assets/image-3.png)
 
 训练过程中点击详情->日志
 
-![alt text](image-4.png)
-![alt text](image-5.png)
+![alt text](assets/image-4.png)
+![alt text](assets/image-5.png)
 
 可以进到各个节点看到训练日志
 
-![alt text](image-6.png)
-![alt text](image-7.png)
+![alt text](assets/image-6.png)
+![alt text](assets/image-7.png)
 
 训练完成之后进入作业目录可以看到训练完成的新模型在目录中，微调后的模型完整路径一般为`[家目录]/scow/ai/appData/[作业名]/0/llama-factory-merged`，注意最后的`/0/llama-factory-merged`，复制该路径便于后续测试
 
-![alt text](image-8.png)
-![alt text](image-9.png)
-![alt text](image-10.png)
+![alt text](assets/image-8.png)
+![alt text](assets/image-9.png)
+![alt text](assets/image-10.png)
 
 ## 4、推理验证
 得到merge的模型后进行推理验证微调是否成功，使用nextchat应用
 
-![alt text](image-11.png)
+![alt text](assets/image-11.png)
 
 选择默认镜像，添加挂载点，填写前面微调模型的路径，添加环境变量`SCOW_AI_MODEL_PATH`，同样填写微调模型的路径
 
-![alt text](image-12.png)
+![alt text](assets/image-12.png)
 
 选择一张加速卡，点击提交
 
-![alt text](image-13.png)
+![alt text](assets/image-13.png)
 
 点击进入
 
-![alt text](image-14.png)
+![alt text](assets/image-14.png)
 
 在聊天框进行对话，可以发现模型回答达到预期效果
 
-![alt text](image-15.png)
+![alt text](assets/image-15.png)
