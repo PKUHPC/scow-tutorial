@@ -98,3 +98,95 @@ export_legacy_format: false
 在聊天框进行对话，可以发现模型回答达到预期效果
 
 ![alt text](assets/image-13.png)
+
+## *4、使用tensorboard可视化训练
+使用本教程的训练框架llamafactory时，可将训练日志输出到指定文件夹中，并使用tensorboard将训练过程可视化
+
+本部分需要使用者对集群的文件系统、训练模块和llamafactory框架的使用方法都有较好的掌握
+
+### 4.1、创建日志文件夹
+进入智算平台的文件管理系统中
+
+![alt text](assets/assets/image.png)
+
+创建文件夹logs->tensorboard
+
+![alt text](assets/assets/image-1.png)
+![alt text](assets/assets/image-2.png)
+![alt text](assets/assets/image-3.png)
+![alt text](assets/assets/image-4.png)
+![alt text](assets/assets/image-5.png)
+
+记住tensorboard文件夹的绝对路径，每个用户的路径不同，基本格式是`/data/home/用户名/logs/tensorboard`，这里是`/data/home/2401213359/logs/tensorboard`
+
+![alt text](assets/assets/image-6.png)
+
+### 4.2、修改运行命令
+
+将章节2中启动训练时填写的运行命令中的
+```
+logging_dir: ./logs/tensorboard
+# report_to: tensorboard
+```
+改为
+```
+logging_dir: /data/home/2401213359/logs/tensorboard
+report_to: tensorboard
+```
+其中`logging_dir`对应的内容就是4.1中创建的目录路径
+
+其次在运行命令开头加上`pip install tensorboardX && `，用来安装必要环境
+
+得到的完整运行命令如下
+```
+pip install tensorboardX && echo "model_name_or_path: $SCOW_AI_MODEL_PATH
+
+stage: sft  # Supervised Fine-Tuning 有监督的微调
+do_train: true
+finetuning_type: lora # 微调类型,例如lora
+lora_target: all  # LoRA微调的目标模块
+dataset: identity #新模型的数据集名称
+template: qwen # 数据模板，例如qwen,llama3
+cutoff_len: 1024 # 序列截断长度。
+max_samples: 1000 # 最大样本数 
+output_dir: ${WORK_DIR}/llama-factory-output
+num_train_epochs: 20.0
+learning_rate: 1.0e-4
+lr_scheduler_type: cosine
+
+# 配置文件中的TensorBoard设置
+logging_dir: /data/home/2401213359/logs/tensorboard
+report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity-pku-assistant.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml && echo "### model
+model_name_or_path: $SCOW_AI_MODEL_PATH
+adapter_name_or_path: ${WORK_DIR}/llama-factory-output
+template: qwen
+trust_remote_code: true
+
+### export
+export_dir: ${WORK_DIR}/llama-factory-merged
+export_size: 5
+export_device: auto  # choices: [cpu, auto]
+export_legacy_format: false
+" > /app/lora_merge.yaml && llamafactory-cli export /app/lora_merge.yaml
+```
+
+### 4.3、创建训练任务
+
+创建训练任务与原先只有三点不同，第一是运行命令改为4.2中修改后的运行命令（注意你的命令与教程的命令并不完全相同，日志路径需要填写你自己创建的路径）
+
+第二是需要添加挂载点，填写你创建的日志文件夹路径
+
+![alt text](assets/assets/image-10.png)
+
+第三是需要开启可视化训练，并挂载数据源，即你创建的日志文件夹路径
+
+![alt text](assets/assets/image-7.png)
+
+最后点击提交
+
+### 4.4、查看可视化训练过程
+进入任务详情点击查看tensorboard
+
+![alt text](assets/assets/image-8.png)
+![alt text](assets/assets/image-9.png)
+![alt text](assets/assets/image-11.png)
