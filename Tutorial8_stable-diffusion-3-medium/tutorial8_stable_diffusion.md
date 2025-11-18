@@ -60,7 +60,7 @@ pip install  modelscope==1.22.3
 ## 2. 下载模型
 建议在shell中与当前脚本相同目录下进行模型下载，而不是在应用中进行，以免造成资源浪费
 
-![alt text](image-4.png)
+![alt text](assets/image-4.png)
 
 ```
 # 通过命令行下载模型和数据
@@ -71,19 +71,19 @@ modelscope download --model stabilityai/stable-diffusion-3-medium-diffusers --lo
 
 打开新的终端
 
-![alt text](image-5.png)
+![alt text](assets/image-5.png)
 
 创建新文件
 
-![alt text](image-6.png)
+![alt text](assets/image-6.png)
 
 输入文件名：run.py 
 
-![alt text](image-7.png)
+![alt text](assets/image-7.png)
 
 将以下代码复制粘贴到新文件内 
 
-![alt text](image-8.png)
+![alt text](assets/image-8.png)
 
 代码如下：
 ```
@@ -132,5 +132,5 @@ python run.py
 
 在脚本同路径下会生成十张图片和一个输出结果的json文件，打开其中一张，可以看到生成的图片内容符合我们给到大模型的prompt
 
-![alt text](image-9.png)
-![alt text](image-10.png)
+![alt text](assets/image-9.png)
+![alt text](assets/image-10.png)
