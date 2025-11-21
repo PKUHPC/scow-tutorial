@@ -1,4 +1,4 @@
-# scow-tutorial-huawei
+# scow-tutorial
 本教程介绍如何在基于 [SCOW](https://www.pkuscow.com/) 的英伟达集群上申请计算资源并运行各类计算任务。
 
 [教程入口](https://github.com/PKUHPC/scow-tutorial/blob/main/tutorial_scow.md)
