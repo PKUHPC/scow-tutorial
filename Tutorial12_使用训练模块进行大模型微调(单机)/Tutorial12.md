@@ -42,7 +42,7 @@ lr_scheduler_type: cosine
 
 # 配置文件中的TensorBoard设置
 logging_dir: ./logs/tensorboard
-# report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity-pku-assistant.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml && echo "### model
+# report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml && echo "### model
 model_name_or_path: $SCOW_AI_MODEL_PATH
 adapter_name_or_path: ${WORK_DIR}/llama-factory-output
 template: qwen
@@ -156,7 +156,7 @@ lr_scheduler_type: cosine
 
 # 配置文件中的TensorBoard设置
 logging_dir: /data/home/2401213359/logs/tensorboard
-report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity-pku-assistant.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml && echo "### model
+report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml && echo "### model
 model_name_or_path: $SCOW_AI_MODEL_PATH
 adapter_name_or_path: ${WORK_DIR}/llama-factory-output
 template: qwen
