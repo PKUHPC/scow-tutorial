@@ -25,9 +25,10 @@
 * $SCOW_AI_MODEL_PATH：模型存放的统一路径
 * $SCOW_AI_DATASET_PATH：数据集存放的统一路径
 * $SCOW_AI_ALGORITHM_PATH：算法存放的统一路径
-10. 基础镜像，在没有特别说明的情况下，都使用基础镜像
-* 将 `app-store-images.pku.edu.cn/nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04` 作为基础镜像，粘贴到 远程镜像地址框中
-* 将 `app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4` 作为llamafactory基础镜像，粘贴到 远程镜像地址框中
+10. 在没有特殊需求的情况下，使用以下基础镜像
+* app-store-images.pku.edu.cn/nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04
+* app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4
+* app-store-images.pku.edu.cn/pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel
 11. 每个教程都使用markdown格式，每个教程中使用的图片，统一放在教程目录下的assets文件夹中，与教程的markdown文件并列
 ## issue
 如果遇到问题，欢迎提交issue。
