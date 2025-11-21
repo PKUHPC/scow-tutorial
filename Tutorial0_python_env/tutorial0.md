@@ -91,10 +91,7 @@ conda activate tutorial0
 
 ![alt text](assets/image-12.png)
 
-运行命令`python --version`，可以看到python版本，已经具备python环境
+* 运行命令`python --version`，可以看到python版本，已经具备python环境
+* 运行命令`python -c "print('helloworld')"`，能够成功打印
 
-![alt text](assets/image-13.png)
-
-运行命令`python -c "print('helloworld')"`，能够成功打印
-
-![alt text](assets/image-14.png)
+![alt text](assets/image-15.png)
