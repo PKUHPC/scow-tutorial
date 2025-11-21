@@ -190,3 +190,9 @@ export_legacy_format: false
 ![alt text](assets/assets/image-8.png)
 ![alt text](assets/assets/image-9.png)
 ![alt text](assets/assets/image-11.png)
+
+第一次运行训练任务得到的tensorboard参考价值较低，如上图，里面每张图都只有一个点，没有体现变化趋势
+
+因此可以修改运行命令中的`num_train_epochs`值，教程中给出的值是20，可以换成15和10再重新跑一遍训练任务，这样得到的tensorboard就能够体现变化趋势
+
+![alt text](assets/assets/image-12.png)
