@@ -55,7 +55,7 @@
 ![alt text](assets/image-9.png)
 ![alt text](assets/image-10.png)
 
-分别点击进入应用（最好在此时分不同页面区分主节点应用和从节点应用）
+分别点击进入应用（最好在此时分不同页面区分主节点应用和从节点应用，此时需先打开一个作业等待vscode页面完全加载完成再打开另一个作业）
 
 ![alt text](assets/image-11.png)
 
@@ -88,6 +88,8 @@ resume_from_checkpoint: null
 logging_dir: ./logs/tensorboard
 # report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity.json\"}}" > /app/data/dataset_info.json
 ```
+
+运行完这条命令，可以运行 `cat /app/config.yaml` 和 `cat /app/data/dataset_info.json` 两条命令检查文件是否生成成功，正常情况下会打印出文件内容
 
 开始微调（两条命令请同时运行，间隔不要超过30s）：
 * 在主节点应用中运行以下命令（这里的MASTER_ADDR为前面记录的主节点ip，不同集群、用户、作业的ip都不同，务必使用你自己记录的主节点ip）
@@ -129,7 +131,7 @@ export_legacy_format: false
 llamafactory-cli export /app/lora_merge.yaml
 ```
 
-在终端看到以下输出则模型合并成功，红框的部分就是合并模型的存储路径，记录下来后续模型推理验证会使用到，这里是`/data/home/2401213359/scow/ai/appData/nvidia-vscode-20251112-125130/llama-factory-merged`
+在终端看到以下输出则模型合并成功，红框的部分就是【合并模型的存储路径】，记录下来后续模型推理验证会使用到
 
 ![alt text](assets/image-15.png)
 
@@ -144,7 +146,8 @@ llamafactory-cli export /app/lora_merge.yaml
 
 ![alt text](assets/image-18.png)
 
-添加挂载点，填写前面记录到的合并模型存储路径；添加环境变量，名称填写`SCOW_AI_MODEL_PATH`，值填写前面记录到的合并模型存储路径，这里是`/data/home/2401213359/scow/ai/appData/nvidia-vscode-20251112-125130/llama-factory-merged`
+* 添加挂载点，填写前面记录的【合并模型的存储路径】
+* 添加环境变量，名称填写`SCOW_AI_MODEL_PATH`，值同样填写前面记录到的【合并模型的存储路径】
 
 ![alt text](assets/image-19.png)
 
@@ -152,10 +155,15 @@ llamafactory-cli export /app/lora_merge.yaml
 
 ![alt text](assets/image-20.png)
 
-点击进入nextchat应用
+等待进入按钮可用（需要点击刷新按钮，一般需等待约五分钟），点击进入nextchat应用
 
 ![alt text](assets/image-21.png)
 
 在对话框中提问`你是谁`，模型回答`您好，我是由 北京大学 发明的 北大助手。我可以为您提供多种多样的服务，比如翻译、写代码、闲聊、为您答疑解惑等。`，达到微调效果
 
 ![alt text](assets/image-22.png)
+
+---
+> 作者：褚苙扬；龙汀汀*
+>
+> 联系方式：l.tingting@pku.edu.cn

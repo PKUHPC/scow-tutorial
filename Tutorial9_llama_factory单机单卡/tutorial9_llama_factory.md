@@ -91,6 +91,7 @@ output_dir: ${WORK_DIR}/llama-factory-output
 logging_dir: ./logs/tensorboard
 # report_to: tensorboard" > config.yaml
 ```
+
 2.1.2 粘贴到终端terminal，再按回车键执行这些代码，完成创建config.yaml 文件
 ![alt text](assets/image-42.png)
 
@@ -225,3 +226,8 @@ for model_dir in [os.environ.get('SCOW_AI_MODEL_PATH'), os.path.join(os.environ.
 
 可以看到使用的是 经过微调后的模型时，大模型认为自己是 北大助手
 ![alt text](assets/image-24.png)
+
+---
+> 作者：孔德硕；石晶；褚苙扬；龙汀汀*
+>
+> 联系方式：l.tingting@pku.edu.cn

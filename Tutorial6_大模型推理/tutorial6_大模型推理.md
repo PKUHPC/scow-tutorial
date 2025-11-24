@@ -139,3 +139,8 @@ print("content:", content)
 
 2.4.2 提示词在 tutorial4.py 中，任务是要大模型：简短介绍什么是大模型。大模型推理的内容如下图所示，完成了推理任务。
 ![alt text](assets/image-33.png)
+
+---
+> 作者：孔德硕；龙汀汀*
+>
+> 联系方式：l.tingting@pku.edu.cn

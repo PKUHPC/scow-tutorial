@@ -72,3 +72,8 @@ modelscope download --model Qwen/Qwen3-4B-Instruct-2507 --local_dir ./Qwen/Qwen3
 回到我的模型页面，点击 QWen 前面的 +号，可以看到模型的新版本 Qwen3-4B 已经创建成功，在后续创建任务时即可挂载此模型
 
 ![alt text](assets/assets/image-7.png)
+
+---
+> 作者：孔德硕；褚苙扬；龙汀汀*
+>
+> 联系方式：l.tingting@pku.edu.cn

@@ -29,7 +29,7 @@
 
 ![alt text](assets/image-1.png)
 
-创建成功后，在“已创建的应用”中点击 “连接” 进入应用：
+创建成功后，在“已创建的应用”中点击 “连接或进入” 进入应用：
 
 ![alt text](assets/image-2.png)
 
@@ -201,3 +201,8 @@ python run.py
 
 ![alt text](assets/image-8.png)
 ![alt text](assets/image-9.png)
+
+---
+> 作者：褚苙扬；张宇飞；龙汀汀*
+>
+> 联系方式：l.tingting@pku.edu.cn

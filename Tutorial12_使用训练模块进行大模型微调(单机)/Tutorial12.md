@@ -196,3 +196,8 @@ export_legacy_format: false
 因此可以修改运行命令中的`num_train_epochs`值，教程中给出的值是20，可以换成15和10再重新跑一遍训练任务，这样得到的tensorboard就能够体现变化趋势
 
 ![alt text](assets/assets/image-12.png)
+
+---
+> 作者：褚苙扬；龙汀汀*
+>
+> 联系方式：l.tingting@pku.edu.cn
