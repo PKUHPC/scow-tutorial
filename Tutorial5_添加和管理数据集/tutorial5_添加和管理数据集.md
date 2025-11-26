@@ -38,7 +38,7 @@
 此时文件没有内容，点击文件名 identity.json，打开文件，文件为空白，点击右下角的 编辑 按钮，对文件进行编辑
 ![alt text](assets/image-7.png)
 
-把[数据集内容](dataset/identity-pku-assistant.json)进行 复制，然后粘贴到 文件 中，点击 保存 按钮，identity.json 就有了内容，在后续的步骤中将作为数据集使用
+把[数据集内容](dataset/identity.json)进行 复制，然后粘贴到 文件 中，点击 保存 按钮，identity.json 就有了内容，在后续的步骤中将作为数据集使用
 ![alt text](assets/image-8.png)
 
 1.1.3 创建数据集相关的文件
