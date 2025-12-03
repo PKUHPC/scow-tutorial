@@ -14,14 +14,45 @@
 
 Stable Diffusion 是由 Stability AI 开发的一个开源的深度学习模型，用于生成高质量图像。
 
+确保已经根据[tutorial0](../Tutorial0_python_env/tutorial0.md)安装conda环境
+
 ## 1. 环境安装与应用创建
 ### 1.1 登录
 我们可以通过如下网址访问 (校外访问需通过北大vpn)：
 
 集群入口: https://scow.pku.edu.cn/
 
-### 1.2 在超算平台中安装环境
+### 1.2 在shell中安装环境
+点击登录集群->未名二号 wm2-data01->打开，打开shell
 
+![alt text](assets/image-12.png)
+![alt text](assets/image-13.png)
+
+在shell中运行以下命令创建文件夹、配置环境
+```
+# 在Shell命令行中执行：
+
+conda create -n tutorial python=3.9
+conda activate tutorial
+
+# 安装依赖
+pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 \
+scikit-learn==1.5.0 pyyaml==6.0.2 torchvision==0.18.1 torchaudio==2.3.1 accelerate==1.2.1 \
+scipy==1.13.1 attrs==24.3.0 deepspeed==0.16.2 transformers==4.42.4 datasets==3.2.0 \
+evaluate==0.4.3 diffusers==0.32.1 sentencepiece==0.2.0 protobuf==5.29.2 decorator==5.2.1 \
+-i https://mirrors.pku.edu.cn/pypi/web/simple
+
+pip install  modelscope==1.22.3
+```
+
+### 1.3 安装模型
+继续在shell中运行以下命令下载模型
+```
+# 通过命令行下载模型和数据
+modelscope download --model stabilityai/stable-diffusion-3-medium-diffusers --local_dir stabilityai/stable-diffusion-3-medium-diffusers
+```
+
+## 2. 创建vscode应用
 我们的教程使用 VSCode 运行，需要在 “交互式应用” 中创建应用。
 
 ![alt text](assets/image.png)
@@ -38,34 +69,6 @@ Stable Diffusion 是由 Stability AI 开发的一个开源的深度学习模型�
 
 ![alt text](assets/image-3.png)
 
-### 1.3 安装依赖
-
-确保已经根据[tutorial0](../Tutorial0_python_env/tutorial0.md)安装conda环境
-
-```
-# 在Shell命令行中执行：
-
-conda create -n tutorial python=3.9
-conda activate tutorial
-
-# 安装依赖
-pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 \
-scikit-learn==1.5.0 pyyaml==6.0.2 torchvision==0.18.1 torchaudio==2.3.1 accelerate==1.2.1 \
-scipy==1.13.1 attrs==24.3.0 deepspeed==0.16.2 transformers==4.42.4 datasets==3.2.0 \
-evaluate==0.4.3 diffusers==0.32.1 sentencepiece==0.2.0 protobuf==5.29.2 decorator==5.2.1 \
--i https://mirrors.pku.edu.cn/pypi/web/simple
-
-pip install  modelscope==1.22.3
-```
-## 2. 下载模型
-建议在shell中与当前脚本相同目录下进行模型下载，而不是在应用中进行，以免造成资源浪费
-
-![alt text](assets/image-4.png)
-
-```
-# 通过命令行下载模型和数据
-modelscope download --model stabilityai/stable-diffusion-3-medium-diffusers --local_dir stabilityai/stable-diffusion-3-medium-diffusers
-```
 
 ## 3. 文生图
 

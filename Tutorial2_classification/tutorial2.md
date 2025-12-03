@@ -11,11 +11,33 @@
 
 此教程运行在SCOW超算平台中，请确保运行过[Tutorial0 搭建Python环境](../Tutorial0_python_env/tutorial0.md)中1.2安装conda的步骤，再来尝试运行本教程
 
-## 1、环境准备
+## 1、前置准备
+### 1.1. 安装环境
 切换到超算平台中
 
 ![alt text](assets/image.png)
 
+点击登录集群->未名二号 wm2-data01->打开，打开shell
+
+![alt text](assets/image-12.png)
+![alt text](assets/image-13.png)
+
+在shell中运行以下命令创建文件夹、配置环境、加载模型
+```shell
+mkdir tutorial2
+cd tutorial2
+source ~/.bashrc
+conda create -n tutorial2 python==3.10
+conda activate tutorial2
+pip install ftfy==6.3.1 regex==2024.11.6 tqdm==4.67.1 pyyaml==6.0.2 traitlets==5.14.3 decorator==5.2.1 attrs==25.4.0 psutil==7.1.2
+git clone https://github.com/openai/CLIP.git
+cd CLIP
+pip install .
+cd ..
+python -c "import clip; clip.load('ViT-B/32', device='cpu')"
+```
+
+### 1.2. 创建应用
 点击交互式应用->未名二号->创建应用进入创建界面，选择vscode应用
 
 ![alt text](assets/image-1.png)
@@ -33,23 +55,10 @@
 
 ![alt text](assets/image-10.png)
 
-运行下面的命令创建文件夹、配置环境
-```shell
-mkdir tutorial2
-cd tutorial2
-conda create -n tutorial2 python==3.10
-conda activate tutorial2
-pip install ftfy==6.3.1 regex==2024.11.6 tqdm==4.67.1 pyyaml==6.0.2 traitlets==5.14.3 decorator==5.2.1 attrs==25.4.0 psutil==7.1.2
-git clone https://github.com/openai/CLIP.git
-cd CLIP
-pip install .
-cd ..
-```
-
 ## 2、数据准备
 供模型调用的图像如下：
 
-![alt text](assets/CLIP.png)
+![alt text](CLIP.png)
 
 能够看出是CLIP模型的预训练和预测流程图，后面将调用CLIP对本图像进行分类
 

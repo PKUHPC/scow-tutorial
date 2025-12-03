@@ -12,6 +12,7 @@
 2. 加载模型和数据
 3. 运行模型微调
 
+确保已经根据[tutorial0](../Tutorial0_python_env/tutorial0.md)安装conda环境
 
 ## 1. 环境安装
 ### 1.1 登录
@@ -19,28 +20,13 @@
 
 集群入口: https://scow.pku.edu.cn/
 
-### 1.2 在超算平台中安装环境
+### 1.2 在shell中安装环境
+点击登录集群->未名二号 wm2-data01->打开，打开shell
 
-我们的教程使用 VSCode 运行，需要在 “交互式应用” 中创建应用。
+![alt text](assets/image-12.png)
+![alt text](assets/image-13.png)
 
-![alt text](assets/image.png)
-
-在 VSCode 应用资源申请页面申请相应的资源，点击最下方的 “提交”，进行创建。
-
-![alt text](assets/image-1.png)
-
-创建成功后，在“已创建的应用”中点击 “连接或进入” 进入应用：
-
-![alt text](assets/image-2.png)
-
-进入 VSCode 后界面如下：
-
-![alt text](assets/image-3.png)
-
-### 1.3 安装依赖
-
-确保已经根据[tutorial0](../Tutorial0_python_env/tutorial0.md)安装conda环境
-
+在shell中运行以下命令创建文件夹、配置环境
 ```
 # 在Shell命令行中执行：
 
@@ -57,12 +43,31 @@ evaluate==0.4.3 diffusers==0.32.1 sentencepiece==0.2.0 protobuf==5.29.2 decorato
 pip install modelscope==1.22.3 
 ```
 
-## 2. 下载模型和数据
+### 1.3 安装模型和数据
+继续在shell中运行以下命令下载模型和数据
 ```
 # 通过命令行下载模型和数据
 export HF_ENDPOINT=https://hf-mirror.com
 modelscope download --model google-bert/bert-base-uncased --local_dir ./bert-base-uncased
 ```
+
+## 2. 创建vscode应用
+我们的教程使用 VSCode 运行，需要在 “交互式应用” 中创建应用。
+
+![alt text](assets/image.png)
+
+在 VSCode 应用资源申请页面申请相应的资源，点击最下方的 “提交”，进行创建。
+
+![alt text](assets/image-1.png)
+
+创建成功后，在“已创建的应用”中点击 “连接或进入” 进入应用：
+
+![alt text](assets/image-2.png)
+
+进入 VSCode 后界面如下：
+
+![alt text](assets/image-3.png)
+
 
 ## 3. 运行模型微调
 

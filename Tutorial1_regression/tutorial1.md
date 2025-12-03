@@ -9,11 +9,28 @@
 
 此教程运行在SCOW超算平台中，请确保运行过[Tutorial0 搭建Python环境](../Tutorial0_python_env/tutorial0.md)中1.2安装conda的步骤，再来尝试运行本教程
 
-## 1. 环境准备
+## 1. 前置准备
+### 1.1. 安装环境
 切换到超算平台中
 
 ![alt text](assets/image.png)
 
+点击登录集群->未名二号 wm2-data01->打开，打开shell
+
+![alt text](assets/image-12.png)
+![alt text](assets/image-13.png)
+
+在shell中运行以下命令创建文件夹、配置环境
+```shell
+mkdir tutorial1
+cd tutorial1
+source ~/.bashrc
+conda create -n tutorial1 python==3.10
+conda activate tutorial1
+pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 scikit-learn==1.5.0 pyyaml==6.0.2 matplotlib_inline==0.2.1 traitlets==5.14.3 decorator==5.2.1 attrs==25.4.0 psutil==7.1.2
+```
+
+### 1.2. 创建应用
 点击交互式应用->未名二号->创建应用进入创建界面，选择vscode应用
 
 ![alt text](assets/image-1.png)
@@ -30,15 +47,6 @@
 进到vscode应用中打开terminal
 
 ![alt text](assets/image-11.png)
-
-运行下面的命令创建文件夹、配置环境
-```shell
-mkdir tutorial1
-cd tutorial1
-conda create -n tutorial1 python==3.10
-conda activate tutorial1
-pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 scikit-learn==1.5.0 pyyaml==6.0.2 matplotlib_inline==0.2.1 traitlets==5.14.3 decorator==5.2.1 attrs==25.4.0 psutil==7.1.2
-```
 
 ## 2. 数据集下载
 作为简化模型的案例，这里使用的是 [kaggle 房价预测竞赛中的训练数据集](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data)。在后面的处理中，我们只使用了数值部分的特征，并把全部数据分为训练集和测试集两部分。
