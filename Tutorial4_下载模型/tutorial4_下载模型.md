@@ -7,6 +7,54 @@
 * 所需资源：无
 * 目标：本节旨在使用超算平台展示如何下载大模型 [Qwen3-4B] (https://modelscope.cn/models/Qwen/Qwen3-4B-Instruct-2507) 。
 
+使用本教程前请确保超算集群与智算集群的文件管理系统是互通的，如果不是互通的那么`章节2`中智算集群创建模型时就无法用到在`章节1`中超算集群的shell下载的模型，此时你请参考`章节0`的方法在智算集群中下载模型并跳过`章节1`，如果是互通的则跳过`章节0`即可。
+
+## 0、使用智算平台下载模型
+
+登录SCOW平台，选取智算平台
+
+![alt text](assets/assets/assets/image.png)
+
+点击作业->AI实验集群->应用进入创建应用界面，接着点击VSCode应用
+
+![alt text](assets/assets/assets/image-1.png)
+![alt text](assets/assets/assets/image-2.png)
+
+进到创建VSCode中，分别填写以下内容：
+* 镜像源选择远程镜像
+* 远程镜像地址填写 `app-store-images.pku.edu.cn/pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel`
+* 修改默认命令填写 `${SCOW_AI_ALGORITHM_PATH}/bin/code-server`
+* 添加算法，选择公共算法->code-server->4.99.4-linux-amd64
+* 最长运行时间按需填写，需要大于模型预估下载时间
+其余维持不变，点击提交
+
+![alt text](assets/assets/assets/image-3.png)
+
+在跳转后的页面点击进入进入vscode应用并打开终端
+
+![alt text](assets/assets/assets/image-4.png)
+![alt text](assets/assets/assets/image-5.png)
+
+在终端中依次运行以下命令
+```shell
+pip install modelscope
+modelscope download --model Qwen/Qwen3-4B-Instruct-2507 --local_dir $WORK_DIR/Qwen3-4B-Instruct-2507
+```
+
+运行命令 `echo $WORK_DIR/Qwen3-4B-Instruct-2507` 查看安装模型的路径，其中红框框起来的部分就是模型的绝对路径
+
+![alt text](assets/assets/assets/image-6.png)
+
+回到集群主页，点击文件->AI文件集群，进入文件系统
+
+![alt text](assets/assets/assets/image-7.png)
+
+在地址栏中填写模型的绝对路径按回车，就能够看到模型文件
+
+![alt text](assets/assets/assets/image-8.png)
+
+请记住模型的绝对路径，在章节2中选择模型文件时会使用到
+
 ## 1、使用超算平台下载模型
 
 1.1 登录[SCOW平台](scow.pku.edu.cn)，选取超算平台
