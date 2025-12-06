@@ -29,9 +29,9 @@
 在shell中运行以下命令创建文件夹、配置环境
 ```
 # 在Shell命令行中执行：
-
-conda create -n tutorial python=3.9
-conda activate tutorial
+source ~/.bashrc
+conda create -n tutorial7 python=3.9
+conda activate tutorial7
 
 # 安装依赖
 pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 \
@@ -48,6 +48,9 @@ pip install modelscope==1.22.3
 ```
 # 通过命令行下载模型和数据
 export HF_ENDPOINT=https://hf-mirror.com
+mkdir datasets_cache
+python -c "from datasets import load_dataset; load_dataset('glue','mrpc', cache_dir='./datasets_cache')"
+python -c "import evaluate; evaluate.load('glue','mrpc', cache_dir='./datasets_cache')"
 modelscope download --model google-bert/bert-base-uncased --local_dir ./bert-base-uncased
 ```
 
@@ -93,23 +96,12 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from datasets import load_dataset
 import os
 
-# 模型和数据路径
-model_path = "model"
-data_path = "data"
-
-# 加载模型
-if os.path.exists(model_path) and os.path.isdir(model_path):
-    model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=2)
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-else: 
-    model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=2)
-    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=2)
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
 # 加载数据
-if os.path.exists(data_path) and os.path.isdir(data_path):
-    raw_datasets = load_dataset(data_path)
-else:
-    raw_datasets = load_dataset("glue", "mrpc")
+cache_dir = os.path.join(os.getcwd(), "datasets_cache") # 当前文件夹下的缓存目录
+raw_datasets = load_dataset("glue", "mrpc", cache_dir=cache_dir)
 
 # 分词，使用 .map 方法为数据集添加 token 相关的 key
 def tokenize_function(example):
@@ -153,7 +145,7 @@ lr_scheduler = get_scheduler(
 )
 
 # 评估函数
-metric = evaluate.load("glue", "mrpc")
+metric = evaluate.load("glue", "mrpc", cache_dir=cache_dir)
 def compute_eval(model, eval_dataloader, device, metric=metric):
     model.eval()
     for batch in eval_dataloader:
@@ -199,6 +191,7 @@ model.save_pretrained('model_trained')
 
 执行命令
 ```
+conda activate tutorial7
 python run.py
 ```
 

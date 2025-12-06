@@ -64,6 +64,7 @@ pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 scikit-le
 ## 3. 运行训练
 在tutorial1下创建Python脚本
 ```shell
+cd tutorial1
 echo "" > tutorial1.py
 ```
 在tutorial1.py中放入下面的代码
@@ -170,6 +171,7 @@ if __name__ == '__main__':
 
 运行下面的命令开始训练
 ```shell
+conda activate tutorial1
 python tutorial1.py
 ```
 

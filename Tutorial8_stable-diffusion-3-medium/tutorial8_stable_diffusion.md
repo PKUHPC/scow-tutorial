@@ -31,9 +31,9 @@ Stable Diffusion 是由 Stability AI 开发的一个开源的深度学习模型�
 在shell中运行以下命令创建文件夹、配置环境
 ```
 # 在Shell命令行中执行：
-
-conda create -n tutorial python=3.9
-conda activate tutorial
+source ~/.bashrc
+conda create -n tutorial8 python=3.9
+conda activate tutorial8
 
 # 安装依赖
 pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 \
@@ -130,6 +130,7 @@ for i in range(10):
 
 运行以下命令，从文字生成图像：
 ```
+conda activate tutorial8
 python run.py
 ```
 

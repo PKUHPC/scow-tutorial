@@ -77,6 +77,7 @@ python -c "import clip; clip.load('ViT-B/32', device='cpu')"
 ## 3、模型推理
 在tutorial2下创建Python脚本
 ```shell
+cd tutorial2
 echo "" > tutorial2.py
 ```
 在tutorial2.py中放入下面的代码
@@ -108,6 +109,7 @@ print("Label probs:", probs)
 
 运行下面的命令开始推理
 ```shell
+conda activate tutorial2
 python tutorial2.py
 ```
 

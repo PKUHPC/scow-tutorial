@@ -51,6 +51,7 @@ python -c "from torchvision import datasets; datasets.CIFAR10(root='./cifar', tr
 ## 2、模型训练
 在tutorial3下创建Python脚本
 ```shell
+cd tutorial3
 echo "" > tutorial3.py
 ```
 在tutorial3.py中放入下面的代码
@@ -211,6 +212,7 @@ if __name__ == "__main__":
 
 运行下面的命令开始训练
 ```shell
+conda activate tutorial3
 python tutorial3.py
 ```
 
