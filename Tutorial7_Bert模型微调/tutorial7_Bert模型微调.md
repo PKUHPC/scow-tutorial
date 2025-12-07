@@ -39,19 +39,25 @@ scikit-learn==1.5.0 pyyaml==6.0.2 torchvision==0.18.1 torchaudio==2.3.1 accelera
 scipy==1.13.1 attrs==24.3.0 deepspeed==0.16.2 transformers==4.42.4 datasets==3.2.0 \
 evaluate==0.4.3 diffusers==0.32.1 sentencepiece==0.2.0 protobuf==5.29.2 decorator==5.2.1 \
 -i https://mirrors.pku.edu.cn/pypi/web/simple
-
-pip install modelscope==1.22.3 
 ```
 
 ### 1.3 安装模型和数据
 继续在shell中运行以下命令下载模型和数据
-```
+```shell
+tmux new -s tutorial7  # 建立tmux会话
+source ~/.bashrc
+conda activate tutorial7
+
 # 通过命令行下载模型和数据
+pip install modelscope==1.22.3 
 export HF_ENDPOINT=https://hf-mirror.com
 mkdir datasets_cache
 python -c "from datasets import load_dataset; load_dataset('glue','mrpc', cache_dir='./datasets_cache')"
 python -c "import evaluate; evaluate.load('glue','mrpc', cache_dir='./datasets_cache')"
 modelscope download --model google-bert/bert-base-uncased --local_dir ./bert-base-uncased
+
+# 下载结束后按ctrl+b再单按d退出
+tmux kill-session -t tutorial7  # 删除tmux会话
 ```
 
 ## 2. 创建vscode应用

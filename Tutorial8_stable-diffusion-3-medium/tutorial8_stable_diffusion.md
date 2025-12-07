@@ -41,15 +41,21 @@ scikit-learn==1.5.0 pyyaml==6.0.2 torchvision==0.18.1 torchaudio==2.3.1 accelera
 scipy==1.13.1 attrs==24.3.0 deepspeed==0.16.2 transformers==4.42.4 datasets==3.2.0 \
 evaluate==0.4.3 diffusers==0.32.1 sentencepiece==0.2.0 protobuf==5.29.2 decorator==5.2.1 \
 -i https://mirrors.pku.edu.cn/pypi/web/simple
-
-pip install  modelscope==1.22.3
 ```
 
 ### 1.3 安装模型
 继续在shell中运行以下命令下载模型
-```
+```shell
+tmux new -s tutorial8  # 建立tmux会话
+source ~/.bashrc
+conda activate tutorial8
+pip install  modelscope==1.22.3
+
 # 通过命令行下载模型和数据
 modelscope download --model stabilityai/stable-diffusion-3-medium-diffusers --local_dir stabilityai/stable-diffusion-3-medium-diffusers
+
+# 下载结束后按ctrl+b再单按d退出
+tmux kill-session -t tutorial8  # 删除tmux会话
 ```
 
 ## 2. 创建vscode应用
