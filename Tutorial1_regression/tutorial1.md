@@ -23,7 +23,6 @@
 在shell中运行以下命令创建文件夹、配置环境
 ```shell
 mkdir tutorial1
-cd tutorial1
 source ~/.bashrc
 conda create -n tutorial1 python==3.10
 conda activate tutorial1

@@ -25,7 +25,6 @@
 在shell中运行以下命令创建文件夹、配置环境、加载模型
 ```shell
 mkdir tutorial2
-cd tutorial2
 source ~/.bashrc
 conda create -n tutorial2 python==3.10
 conda activate tutorial2
