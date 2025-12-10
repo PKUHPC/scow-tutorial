@@ -113,7 +113,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import os
 
-model_dir = './models/Qwen2-1.5B-Instruct'
+model_dir = os.environ.get('SCOW_AI_MODEL_PATH')
 print(f"Model downloaded to: {model_dir}")
 
 # 设置CUDA设备
