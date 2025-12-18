@@ -223,6 +223,7 @@ for model_dir in [os.environ.get('SCOW_AI_MODEL_PATH'), os.path.join(os.environ.
 2.3.4 粘贴到已经打开的空白的 step2_refined_model_reasoning.py 文件，这样就完成了文件创建
 
 ![alt text](assets/image-46.png)
+
 ## 3、用镜像对模型进行推理、微调
 
 3.1 使用还没有经过微调的模型进行推理
@@ -250,6 +251,8 @@ for model_dir in [os.environ.get('SCOW_AI_MODEL_PATH'), os.path.join(os.environ.
 3.3 使用经过微调后的模型进行推理
 
 3.3.1 在右侧下半部的终端terminal中，粘贴命令 python step2_refined_model_reasoning.py 再按回车键
+
+![alt text](assets/image-21.png)
 
 3.3.2 在右侧下半部的终端terminal中，查看微调后的结果：
 可以看到使用的是 没有经过微调后的模型时，也就是Qwen2.5-1.5B-Instruct模型时，大模型认为自己是 通义千问
