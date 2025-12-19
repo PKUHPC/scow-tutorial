@@ -61,7 +61,7 @@
 }  
 ```
 
-点击 保存 按钮，可以看到 dataset_info.json 文件创建成功，data目录下面已创建两个文件：indentiy.json作为数据集，dataset_info.json作为数据相关信息
+点击 保存 按钮，可以看到 dataset_info.json 文件创建成功，data目录下面已创建两个文件：identity-pku-assistant.json 作为数据集，dataset_info.json作为数据相关信息
 
 ![alt text](assets/image-10.png)
 
