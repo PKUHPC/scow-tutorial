@@ -102,7 +102,7 @@ app文件夹打开，里面包含子文件夹和文件
 
 2.1 在app文件夹中创建config.yaml文件
 2.1.1 拷贝下面代码：
-```json
+```shell
 echo "model_name_or_path: $SCOW_AI_MODEL_PATH
 
 stage: sft  # Supervised Fine-Tuning 有监督的微调
