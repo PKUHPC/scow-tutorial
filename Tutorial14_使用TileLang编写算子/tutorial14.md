@@ -214,3 +214,9 @@ $$C_{m,n} = \text{ReLU}\left( \left( \sum_{k=0}^{K-1} A_{m,k} \times B_{k,n} \ri
 传统的 PyTorch 实现需要启动三个内核（Matmul, Mul, Relu），产生三次显存读写。而本算子将其合并为一个内核：
 * Accumulation: 矩阵乘法的中间结果存储在 Fragment 寄存器 (C_local) 中。
 * In-Register Processing: 在写回显存之前，直接利用 T.Parallel 指令在寄存器上并发执行 $x \times \alpha$ 和 $\max(x, 0)$。Write Back: 只有处理后的最终结果才会被写入 Global Memory。
+
+
+---
+> 作者：褚苙扬；龙汀汀*
+>
+> 联系方式：l.tingting@pku.edu.cn
