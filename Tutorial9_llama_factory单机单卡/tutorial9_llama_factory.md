@@ -1,7 +1,7 @@
 # Tutorial9: 使用LLaMA-Factory官方镜像完成Qwen2.5大模型的微调、推理
 
 * 集群类型：智算平台
-* 所需镜像：app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4-npu-a2
+* 所需镜像：app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4
 * 所需模型：Qwen2.5-1.5B-Instruct
 * 所需数据集：教程内提供
 * 所需资源：单机单卡，建议使用1张910B NPU运行本教程。
