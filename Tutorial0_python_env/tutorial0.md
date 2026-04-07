@@ -13,7 +13,7 @@
 
 ![alt text](assets/image.png)
 
-点击Shell->未名二号->wm2-data01进入shell
+点击登录集群->对应集群名->"打开"按钮进入shell
 
 ![alt text](assets/image-1.png)
 
@@ -26,6 +26,7 @@ Conda 是一个开源的包管理和环境管理系统。它用于安装和管�
 ```shell
 # 1. 获得最新的miniconda安装包；
 wget https://repo.anaconda.com/miniconda/Miniconda3-py313_25.9.1-1-Linux-x86_64.sh
+如果当前环境没有wget命令，请自行在浏览器上输入上面的地址直接下载miniconda安装包到自己电脑上，再从页面[超算平台]-[文件管理]中上传至家目录
 
 # 2. 安装
 chmod +x Miniconda3-py313_25.9.1-1-Linux-x86_64.sh
@@ -47,6 +48,10 @@ conda --version
 ```shell
 # python版本可按需填写
 conda create -n tutorial0 python==3.10
+Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/main? [(a)ccept/(r)eject/(v)iew]: a
+Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/r? [(a)ccept/(r)eject/(v)iew]: a
+Proceed ([y]/n)? y
+
 conda activate tutorial0
 ```
 
@@ -65,29 +70,34 @@ conda activate tutorial0
 
 ![alt text](assets/image-5.png)
 
-点击作业->应用，选择vscode应用
+点击"开发训练"
+选择集群（若只有一个集群则无需用户选择）
+点击"应用"，选择"VSCode"
 
 ![alt text](assets/image-6.png)
+
+
+在创建应用页面-资源配置：按需选择"账户","集群","队列","优先级","加速卡数",以及"最大运行时间"，本教程仅为示例因此保留默认值，"最大运行时间"填1小时
+
 ![alt text](assets/image-7.png)
 
-在创建应用中，选择远程镜像，填写教程开头给出的镜像地址
+在创建应用页面-应用配置：选择"远程镜像"，填写教程开头给出的镜像地址：app-store-images.pku.edu.cn/pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel
 
 ![alt text](assets/image-8.png)
 
-点击添加算法，选择公共算法->code-server->4.99.4-linux-amd64，点击修改默认命令，并填入`${SCOW_AI_ALGORITHM_PATH}/bin/code-server`
+在创建应用页面-应用配置：点击"添加算法"，选择公共算法->code-server->4.99.4-linux-amd64，在运行命令中，填入`${SCOW_AI_ALGORITHM_PATH}/bin/code-server` 
+，最后点击"提交作业"完成应用的创建  
 
 ![alt text](assets/image-9.png)
 
-按需填写单节点加速卡卡数以及最长运行时间，本教程仅为示例因此保留默认值，最后点击提交
+操作解释：算法code-server是vscode网页版工具的执行文件（管理员提前添加的），在应用设置中指定了远程镜像（容器环境），将算法（code-server）作为了容器启动命令，并在资源设置中指定了容器中应挂载的cpu、内存与加速卡数。最终应用作业运行起来，我们将得到一个pytorch2.7.1+指定gpu数量的容器环境，并能通过网页vscode来方便地使用它。
 
-![alt text](assets/image-10.png)
-
-在跳转的页面中点击进入即可进入应用
+进入应用：在跳转的页面中（未跳转请手动 开发训练->作业-未结束的作业）点击"进入"图标，即可进入应用
 
 ![alt text](assets/image-11.png)
 
 ### 2.2、环境验证
-进入应用后，打开终端
+进入应用后，打开终端。点击"菜单-Terminal-New Terminal"
 
 ![alt text](assets/image-12.png)
 
@@ -97,6 +107,6 @@ conda activate tutorial0
 ![alt text](assets/image-15.png)
 
 ---
-> 作者：褚苙扬；龙汀汀*
+> 作者：褚苙扬；龙汀汀； 张承康*
 >
 > 联系方式：l.tingting@pku.edu.cn
