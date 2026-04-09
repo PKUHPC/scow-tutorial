@@ -15,7 +15,7 @@
 
 ![alt text](assets/image.png)
 
-点击登录集群->未名二号 wm2-data01->打开，打开shell
+点击"登录集群"->对应集群名->"打开"按钮进入shell
 
 ![alt text](assets/image-12.png)
 ![alt text](assets/image-13.png)
@@ -25,17 +25,21 @@
 mkdir tutorial1
 source ~/.bashrc
 conda create -n tutorial1 python==3.10
+Proceed ([y]/n)? y
+
 conda activate tutorial1
 pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 scikit-learn==1.5.0 pyyaml==6.0.2 matplotlib_inline==0.2.1 traitlets==5.14.3 decorator==5.2.1 attrs==25.4.0 psutil==7.1.2
 ```
 
 ### 1.2. 创建应用
-点击交互式应用->未名二号->创建应用进入创建界面，选择vscode应用
+点击"应用"->在应用列表中选择vscode应用
 
 ![alt text](assets/image-1.png)
-![alt text](assets/image-2.png)
 
-节点数填写1，单节点加速卡卡数填写1，最长运行时间适当填写，最后点击提交
+
+在创建应用页面-资源配置：选择"账户","集群","分区：加速卡算力","QOS(优先级)：normal","单节点加速卡数：1",以及"最大运行时间：60分钟"
+
+应用配置：选择"选择版本*：4.105.1(默认)","其他sbatch参数:",最后点击"提交"
 
 ![alt text](assets/image-3.png)
 
@@ -43,7 +47,7 @@ pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 scikit-le
 
 ![alt text](assets/image-10.png)
 
-进到vscode应用中打开terminal
+进入应用后，打开终端。点击"左上角"菜单"图标-Terminal-New Terminal"
 
 ![alt text](assets/image-11.png)
 
@@ -61,10 +65,10 @@ pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 scikit-le
 ![alt text](assets/image-7.png)
 
 ## 3. 运行训练
-在tutorial1下创建Python脚本
+Terminal中在tutorial1下创建Python脚本
 ```shell
 cd tutorial1
-echo "" > tutorial1.py
+touch tutorial1.py
 ```
 在tutorial1.py中放入下面的代码
 ```python

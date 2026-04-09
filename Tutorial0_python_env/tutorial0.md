@@ -13,7 +13,7 @@
 
 ![alt text](assets/image.png)
 
-点击登录集群->对应集群名->"打开"按钮进入shell
+点击"登录集群"->对应集群名->"打开"按钮进入shell
 
 ![alt text](assets/image-1.png)
 
@@ -77,7 +77,7 @@ conda activate tutorial0
 ![alt text](assets/image-6.png)
 
 
-在创建应用页面-资源配置：按需选择"账户","集群","队列","优先级","加速卡数",以及"最大运行时间"，本教程仅为示例因此保留默认值，"最大运行时间"填1小时
+在创建应用页面-资源配置：按需选择"账户","集群","队列：加速卡算力","优先级","加速卡数：1",以及"最大运行时间：1小时"，本教程仅为示例其它保留默认值即可
 
 ![alt text](assets/image-7.png)
 
@@ -85,7 +85,7 @@ conda activate tutorial0
 
 ![alt text](assets/image-8.png)
 
-在创建应用页面-应用配置：点击"添加算法"，选择公共算法->code-server->4.99.4-linux-amd64，在运行命令中，填入`${SCOW_AI_ALGORITHM_PATH}/bin/code-server` 
+在创建应用页面-应用配置：点击"添加算法"，选择公共算法->code-server->4.99.4-linux-amd64，在运行命令中，填入`/${SCOW_AI_ALGORITHM_PATH}/bin/code-server` 
 ，最后点击"提交作业"完成应用的创建  
 
 ![alt text](assets/image-9.png)
@@ -107,6 +107,6 @@ conda activate tutorial0
 ![alt text](assets/image-15.png)
 
 ---
-> 作者：褚苙扬；龙汀汀； 张承康*
+> 作者：褚苙扬；龙汀汀*
 >
 > 联系方式：l.tingting@pku.edu.cn

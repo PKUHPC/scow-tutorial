@@ -15,7 +15,7 @@
 
 ![alt text](assets/image.png)
 
-点击登录集群->未名二号 wm2-data01->打开，打开shell
+点击"登录集群"->对应集群名->"打开"按钮进入shell
 
 ![alt text](assets/image-12.png)
 ![alt text](assets/image-13.png)
@@ -24,27 +24,31 @@
 ```shell
 mkdir tutorial3
 source ~/.bashrc
+#准备python运行环境
 conda create -n tutorial3 python==3.10
 conda activate tutorial3
 pip install torch==2.3.1 numpy==1.26.4 pandas==2.2.2 torchvision==0.18.1 pyyaml==6.0.2 traitlets==5.14.3 decorator==5.2.1 attrs==25.4.0 psutil==7.1.2 scipy==1.15.3
+#在login节点上执行下载模型所需数据资源
 python -c "from torchvision import datasets; datasets.CIFAR10(root='./cifar', train=True, download=True); datasets.CIFAR10(root='./cifar', train=False, download=True)"
+#此步如果失败超时，则说明环境网络不可达，可本地浏览器下载https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz，再从页面[超算平台]-[文件管理]中上传至家目录~/tutorial3/cifar/下,不用解压缩
 ```
 
 ### 1.2、创建应用
-点击交互式应用->未名二号->创建应用进入创建界面，选择vscode应用
+点击"应用"->在应用列表中选择vscode应用
 
 ![alt text](assets/image-1.png)
-![alt text](assets/image-2.png)
 
-节点数填写1，单节点加速卡卡数填写2，最长运行时间适当填写，最后点击提交
+在创建应用页面-资源配置：选择"账户","集群","分区：加速卡算力","QOS(优先级)：normal","单节点加速卡数：2",以及"最大运行时间：60分钟"
 
-![alt text](assets/image-5.png)
+应用配置：选择"选择版本*：4.105.1(默认)","其他sbatch参数:",最后点击"提交"
+
+![alt text](assets/image-3.png)
 
 在跳转到的页面中点击进入
 
 ![alt text](assets/image-9.png)
 
-进到vscode应用中打开terminal
+进入应用后，打开终端。点击"左下角"调试"图标-找到Terminal
 
 ![alt text](assets/image-10.png)
 
@@ -52,7 +56,7 @@ python -c "from torchvision import datasets; datasets.CIFAR10(root='./cifar', tr
 在tutorial3下创建Python脚本
 ```shell
 cd tutorial3
-echo "" > tutorial3.py
+touch tutorial3.py
 ```
 在tutorial3.py中放入下面的代码
 ```python
