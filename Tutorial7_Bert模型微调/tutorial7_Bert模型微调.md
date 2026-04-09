@@ -15,23 +15,23 @@
 确保已经根据[tutorial0](../Tutorial0_python_env/tutorial0.md)安装conda环境
 
 ## 1. 环境安装
-### 1.1 登录
-我们可以通过如下网址访问 (校外访问需通过北大vpn)：
 
-集群入口: https://scow.pku.edu.cn/
+### 1.1 在shell中安装环境
+首先进入超算平台
 
-### 1.2 在shell中安装环境
-点击登录集群->未名二号 wm2-data01->打开，打开shell
-
+点击"登录集群"->对应集群名->"打开"按钮进入shell
 ![alt text](assets/image-12.png)
 ![alt text](assets/image-13.png)
 
 在shell中运行以下命令创建文件夹、配置环境
 ```
 # 在Shell命令行中执行：
+#创建虚拟环境
 source ~/.bashrc
 conda create -n tutorial7 python=3.9
+Proceed ([y]/n)? y
 conda activate tutorial7
+
 
 # 安装依赖
 pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 \
@@ -61,7 +61,7 @@ tmux kill-session -t tutorial7  # 删除tmux会话
 ```
 
 ## 2. 创建vscode应用
-我们的教程使用 VSCode 运行，需要在 “交互式应用” 中创建应用。
+教程操作使用 VSCode 进行，需要在 “应用” 中创建应用。
 
 ![alt text](assets/image.png)
 
