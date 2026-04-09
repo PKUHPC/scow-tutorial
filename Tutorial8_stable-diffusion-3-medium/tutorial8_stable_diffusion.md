@@ -17,12 +17,7 @@ Stable Diffusion 是由 Stability AI 开发的一个开源的深度学习模型�
 确保已经根据[tutorial0](../Tutorial0_python_env/tutorial0.md)安装conda环境
 
 ## 1. 环境安装与应用创建
-### 1.1 登录
-我们可以通过如下网址访问 (校外访问需通过北大vpn)：
-
-集群入口: https://scow.pku.edu.cn/
-
-### 1.2 在shell中安装环境
+### 1.1 在shell中安装环境
 点击登录集群->未名二号 wm2-data01->打开，打开shell
 
 ![alt text](assets/image-12.png)

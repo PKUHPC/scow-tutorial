@@ -19,54 +19,41 @@
 
 1.2 创建交互式应用
 
-1.2.1 然后点击 作业 > 选择集群（这里AI实验集群是AI集群的名称） > 应用 > 创建应用
+点击"开发训练"
+选择集群（若只有一个集群则无需用户选择）
+1.2.2 点击"应用"，选择"VSCode"
 
 ![alt text](assets/image-1.png)
 
-1.2.2 点击VSCode
-
-![alt text](assets/image-2.png)
 
 在创建VSCode交互应用页面中，进行配置：
 
-1.2.3 拉取镜像
+1.2.3 设置远程镜像
 
-选择镜像源 - 远程镜像
-运行命令 - 勾选 修改默认命令
+选择开发镜像 - 远程镜像
 * 将 app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4 拷贝后，粘贴到 远程镜像地址框中，用于平台根据镜像地址拉取相应的LLaMa-Factory镜像
 * 将 ${SCOW_AI_ALGORITHM_PATH}/bin/code-server 拷贝后，粘贴到 修改默认命令框中，用于平台启动VSCode应用
 
-![alt text](assets/image-3.png)
-
 1.2.4 添加模型、算法、和数据集
-* 勾选添加类型 - 模型，下拉菜单中，选取 公共模型；模型下拉菜单中，选取 Qwen2.5-1.5B-Instruct模型，版本下拉菜单中，选取 latest
+* 添加模型，下拉菜单中，选取 公共模型；模型下拉菜单中，选取 Qwen2.5-1.5B-Instruct模型，版本下拉菜单中，选取 latest
 
-![alt text](assets/image-4.png)
+* 添加算法，下拉菜单中，选取 公共算法；算法下拉菜单中，选取 code-server 算法，版本下拉菜单中，选取相应的版本，此时应可以看到算法描述部分显示启动命令，与1.2.3步骤中的启动命令是一致的
 
-* 勾选添加类型 - 算法，下拉菜单中，选取 公共算法；算法下拉菜单中，选取 code-server 算法，版本下拉菜单中，选取相应的版本，此时应可以看到算法描述部分显示启动命令，与1.2.3步骤中的启动命令是一致的
+* 添加数据集，下拉菜单中，选取 我的数据集；数据集下拉菜单中，选取刚创建的 identity-pku-assistant.json数据集，列表中，选取在tutorial5中数据集中设置的版本号；有多个版本的话，选取恰当的版本
 
-![alt text](assets/image-5.png)
 
-* 勾选添加类型 - 数据集，下拉菜单中，选取 我的数据集；数据集下拉菜单中，选取刚创建的 identity-pku-assistant（这里有你的用户名） 数据集，版本下拉菜单中，选取刚在数据集中设置的版本号；有多个版本的话，选取恰当的版本
-
-![alt text](assets/image47.png)
+![alt text](assets/image-3.png)
 
 1.2.5 本教程采用单节点单卡，资源部分不需要修改。也可以根据实际需要，如单节点多卡的话，在 单节点加速卡卡数 中修改为2/4/8（单节点上限是8卡，卡数越多，对大模型训练的时间会相应缩短）然后点击 提交 按钮
 ![alt text](assets/image-6.png)
 
 1.2.6 进入新创建的VScode应用的浏览器界面
 
-提交后，刚创建的作业在 未结束的作业 列表中，作业状态为 PENDING
+提交后，刚创建的作业在 未结束的作业 列表中，作业状态为 PENDING，镜像拉取和调度需要一些时间。
 
-![alt text](assets/image-7.png)
-
-点击 刷新 按钮，手动进行刷新后，作业状态转为 RUNNING 
+点击 刷新 按钮，手动进行刷新后，作业状态转为 RUNNING，点击 "进入"图标
 
 ![alt text](assets/image-8.png)
-
-在这条作业的操作中，点击 进入 图标，浏览器将打开新的页面来展示新创建的VScode应用
-
-![alt text](assets/image-9.png)
 
 如果你是首次走到这一步，会看见如下弹窗，勾选 信任作者，并点击 信任作者 按钮
 ![alt text](assets/1.1.7-trust-author-popup.png)
@@ -100,8 +87,9 @@ app文件夹打开，里面包含子文件夹和文件
 
 ## 2、进行配置
 
-2.1 在app文件夹中创建config.yaml文件
-2.1.1 拷贝下面代码：
+2.1 在/app目录路径中创建config.yaml文件  
+本教程采用echo命令将环境变量创建并写入配置文件config.yaml  
+2.1.1 在Terminal(终端)执行下面代码：
 ```shell
 echo "model_name_or_path: $SCOW_AI_MODEL_PATH
 
@@ -132,7 +120,7 @@ logging_dir: ./logs/tensorboard
 
 ![alt text](assets/image-43.png)
 
-2.2 在app文件夹中创建 step1_model_reasoning.py 文件，这是作为模型微调前做推理的文件
+2.2 在app文件夹中创建 step1_model_reasoning.py 文件，这是作为模型微调前做推理的文件  
 2.2.1 点击红色箭头所指的图标，新建文件，在蓝色方框内给新建的文件取名 step1_model_reasoning.py 再按回车键
 ![alt text](assets/2.2.1-create-step1-py.png)
 
@@ -262,6 +250,10 @@ for model_dir in [os.environ.get('SCOW_AI_MODEL_PATH'), os.path.join(os.environ.
 可以看到使用的是 经过微调后的模型时，大模型认为自己是 北大助手
 
 ![alt text](assets/image-24.png)
+
+备注：  
+此教程中的config.yaml、step1_model_reasoning.py、step2_refined_model_reasoning.py文件并不会保存在用户家目录任何路径中，因为/app是容器中目录，没有作为任何宿主机挂载点，会随着应用作业结束而销毁。  
+如果需要保存这些文件需要移动到容器内挂载点中，在不设置任何自定挂载点的情况下，scow只在应用容器中默认挂载$WORK_DIR对应路径。
 
 ---
 > 作者：孔德硕；石晶；龙汀汀*

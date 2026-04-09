@@ -48,11 +48,14 @@ tmux new -s tutorial4  # 建立tmux会话，用于后台下载
 modelscope download --model Qwen/Qwen3-4B-Instruct-2507 --local_dir $WORK_DIR/Qwen3-4B-Instruct-2507
 # 在tmux会话中 按ctrl+b再单按d进入后台运行
 
+#此模型在教程9中会使用到
+modelscope download --model Qwen/Qwen2.5-1.5B-Instruct --local_dir $WORK_DIR/Qwen2.5-1.5B-Instruct
+
 tmux相关命令
 tmux attach -t tutorial4  # 重新连接到tmux会话
 tmux kill-session -t tutorial4  # 删除tmux会话,确认下载完成后再做
 ```
-
+备注：  
 运行命令 `echo $WORK_DIR/Qwen3-4B-Instruct-2507` 查看安装模型的路径，其中红框框起来的部分就是模型的绝对路径  
 备注：$WORK_DIR是什么？智算平台的作业会在运行前在用户家目录下创建一个工作目录，地址类似"~/scow/ai/appData/k8s-vscode-20260408-092332/",并被自动挂载到作业容器中相同路径上(在容器中此路径的读写就相当于用户家目录此路径的读写)。$WORK_DIR是用来存储此地址的绝对路径的，方便用户在容器中使用。
 
@@ -138,6 +141,12 @@ tmux kill-session -t tutorial4  # 删除tmux会话,确认下载完成后再做
 回到我的模型页面，点击 QWen 前面的 +号，可以看到模型的新版本 Qwen3-4B 已经创建成功，在后续创建任务时即可挂载此模型
 
 ![alt text](assets/assets/image-7.png)
+
+通过同样的方法我们添加模型Qwen2.5-1.5B-Instruct与latest版本，为tutorial9做模型准备。
+![alt text](assets/assets/image-8.png)
+![alt text](assets/assets/image-9.png)
+将用户个人添加的模型分享为公共模型，全平台用户可使用。
+![alt text](assets/assets/image-10.png)
 
 ---
 > 作者：孔德硕；褚苙扬；龙汀汀*
