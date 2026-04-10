@@ -23,13 +23,12 @@
 
 ![alt text](assets/image-1.png)
 ![alt text](assets/image.png)
-![alt text](assets/image-2.png)
 
-镜像源选择远程镜像，远程镜像地址填写教程开头给出的镜像地址`app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4`
 
 ![alt text](assets/image-3.png)
 
-添加算法、数据集、模型
+添加镜像、算法、数据集、模型
+* 镜像： 远程镜像app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4
 * 算法：公共算法->code-server->4.99.4-linux-amd64
 * 数据集：我的数据集->identity->latest
 * 模型：公共模型->Qwen2.5-1.5B-Instruct->latest（如果您使用的集群没有该模型，请参考[Tutorial4](../Tutorial4_下载模型/tutorial4_下载模型.md)下载模型，其中的1.1.6步骤命令使用modelscope download --model Qwen/Qwen2.5-1.5B-Instruct --local_dir ./Qwen/Qwen/Qwen2.5-1.5B-Instruct）
@@ -137,19 +136,20 @@ llamafactory-cli export /app/lora_merge.yaml
 
 ## 4、推理验证
 
+得到微调后的模型完整路径，进行推理验证微调是否成功，使用nextchat应用  
 创建nextchat应用
-
 ![alt text](assets/image-16.png)
-![alt text](assets/image-17.png)
+
+* 开发镜像-预置镜像(默认镜像):`app-store-images.pku.edu.cn/pkuhpc/nextchat-vllm-service-20250823:v0.10.1.1`
+* 添加自定义挂载点:源目录填写"上个训练作业微调后的模型完整路径" ，挂载点路径填"/mnt/data" (指定源目录挂载到容器内的路径)  
+
+* 添加环境变量`SCOW_AI_MODEL_PATH`，填写"/mnt/data" (源目录挂载到容器内的路径)
 
 使用默认镜像，不用改动默认命令
 
 ![alt text](assets/image-18.png)
 
-* 添加挂载点，填写前面记录的【合并模型的存储路径】
-* 添加环境变量，名称填写`SCOW_AI_MODEL_PATH`，值同样填写前面记录到的【合并模型的存储路径】
-
-![alt text](assets/image-19.png)
+* 资源配置-加速卡数:1 , 最大运行时间:1小时,点击"提交"
 
 加速卡卡数和最长运行时间按需填写，这里不改动，点击提交
 

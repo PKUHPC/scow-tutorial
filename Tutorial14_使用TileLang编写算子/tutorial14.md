@@ -13,11 +13,10 @@
 
 ## 1、前置准备
 ### 1.1、安装环境
-切换到超算平台中
-
+进入超算平台
 ![alt text](assets/image.png)
 
-点击登录集群->未名二号 wm2-data01->打开，打开shell
+点击"登录集群"->对应集群名->"打开"按钮进入shell
 
 ![alt text](assets/image-12.png)
 ![alt text](assets/image-13.png)
@@ -32,10 +31,9 @@ pip install tilelang==0.1.6.post2
 ```
 
 ### 1.2、创建应用
-点击交互式应用->未名二号->创建应用进入创建界面，选择vscode应用
+点击"应用"->在应用列表中选择vscode应用
 
 ![alt text](assets/image-1.png)
-![alt text](assets/image-2.png)
 
 节点数填写1，单节点加速卡卡数填写1，最长运行时间适当填写，最后点击提交
 
@@ -53,7 +51,7 @@ pip install tilelang==0.1.6.post2
 在tutorial14下创建Python脚本
 ```shell
 cd tutorial14
-echo "" > tutorial14.py
+touch tutorial14.py
 ```
 
 在tutorial14.py中放入下面的代码
