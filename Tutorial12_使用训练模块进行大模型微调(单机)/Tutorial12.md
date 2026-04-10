@@ -16,7 +16,7 @@
 ![alt text](assets/image.png)
 
 ## 2、训练模块单机单卡/多卡训练
-在scow-ai网页中点击作业->训练
+在页面中进入智算平台->开发训练->训练
 
 ![alt text](assets/image-1.png)
 
@@ -42,7 +42,7 @@ lr_scheduler_type: cosine
 
 # 配置文件中的TensorBoard设置
 logging_dir: ./logs/tensorboard
-# report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml && echo "### model
+# report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity-pku-assistant.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml >> ${WORK_DIR}/llamafactory-cli-train.log 2>&1 && echo "### model
 model_name_or_path: $SCOW_AI_MODEL_PATH
 adapter_name_or_path: ${WORK_DIR}/llama-factory-output
 template: qwen
@@ -53,10 +53,11 @@ export_dir: ${WORK_DIR}/llama-factory-merged
 export_size: 5
 export_device: auto  # choices: [cpu, auto]
 export_legacy_format: false
-" > /app/lora_merge.yaml && llamafactory-cli export /app/lora_merge.yaml 
+" > /app/lora_merge.yaml && llamafactory-cli export /app/lora_merge.yaml >> ${WORK_DIR}/llamafactory-cli-export.log 2>&1
 ```
-* 数据集选择 我的数据集->identity
-* 模型选择 公共模型->Qwen2.5-1.5B-Instruct(如果您使用的集群没有该模型，请参考[Tutorial4](../Tutorial4_下载模型/tutorial4_下载模型.md)下载模型，其中tutorial4中的1.1.6步骤使用`modelscope download --model Qwen/Qwen2.5-1.5B-Instruct --local_dir ./Qwen/Qwen/Qwen2.5-1.5B-Instruct`)
+备注：先生成 AI 模型微调所需的训练配置文件与数据集路径配置文件，接着切换工作目录调用 llamafactory-cli 工具依据配置对指定模型开展有监督微调训练，训练完成后再生成模型合并配置文件，继续使用该工具将训练出的权重与原模型合并导出为完整新模型，同时把整个训练和导出过程的标准输出与错误输出全部重定向到指定$WORK_DIR路径日志文件中
+* 数据集选择 我的数据集->identity-pku-assistant.json->选取适合版本(在tutorial5中添加，请确保数据集内文件名identity-pku-assistant.json，因为这个文件的名字在启动命令中以硬编码方式写明）
+* 模型选择 公共模型->Qwen2.5-1.5B-Instruct(如果您使用的集群没有该模型，请参考[Tutorial4](../Tutorial4_下载模型/tutorial4_下载模型.md)进行下载
 
 ![alt text](assets/image-14.png)
 
@@ -64,14 +65,13 @@ export_legacy_format: false
 
 ![alt text](assets/image-3.png)
 
-训练过程中点击详情->日志
 
-![alt text](assets/image-4.png)
-![alt text](assets/image-5.png)
+在启动命令中，使用`llamafactory-cli export /app/lora_merge.yaml >> ${WORK_DIR}/llamafactory-cli-export.log 2>&1` 将关注命令的输出内容重定向到作业${WORK_DIR}目录中，方便我们查看命令的执行状态。
 
-可以看到训练日志
-
-![alt text](assets/image-6.png)
+可以通过点击作业操作中的"文件夹"图标进入作业目录（WORK_DIR变量指向的路径）
+![alt text](assets/image-15.png)
+在这里可以看到命令输出的内容被重定向了日志文件里，方便我们检查作业完成状态和调试。
+![alt text](assets/image-16.png)
 
 训练完成之后进入作业目录可以看到训练完成的新模型在目录中，微调后的模型完整路径一般为`[家目录]/scow/ai/appData/[作业名]/llama-factory-merged`，注意最后的`llama-factory-merged`，复制该路径便于后续测试
 
@@ -83,15 +83,18 @@ export_legacy_format: false
 
 ![alt text](assets/image-9.png)
 
-选择默认镜像，添加挂载点，填写微调后的模型完整路径，添加环境变量`SCOW_AI_MODEL_PATH`，同样填写微调后的模型完整路径
+* 开发镜像-预置镜像(默认镜像):`app-store-images.pku.edu.cn/pkuhpc/nextchat-vllm-service-20250823:v0.10.1.1`
+* 添加自定义挂载点:源目录填写"上个训练作业微调后的模型完整路径" ，挂载点路径填"/mnt/data" (指定源目录挂载到容器内的路径)  
+
+* 添加环境变量`SCOW_AI_MODEL_PATH`，填写"/mnt/data" (源目录挂载到容器内的路径)
 
 ![alt text](assets/image-10.png)
 
-选择一张加速卡，点击提交
+* 资源配置-加速卡数:1 , 最大运行时间:1小时,点击"提交"
 
 ![alt text](assets/image-11.png)
 
-点击进入
+点击作业操作中的"进入"图标
 
 ![alt text](assets/image-12.png)
 
@@ -106,17 +109,10 @@ export_legacy_format: false
 
 ### 4.1、创建日志文件夹
 进入智算平台的文件管理系统中
-
-![alt text](assets/assets/image.png)
-
-创建文件夹logs->tensorboard
-
+在用户家目录下创建文件夹logs
 ![alt text](assets/assets/image-1.png)
+进入到刚创建的logs目录，进一步创建tensorboard目录
 ![alt text](assets/assets/image-2.png)
-![alt text](assets/assets/image-3.png)
-![alt text](assets/assets/image-4.png)
-![alt text](assets/assets/image-5.png)
-
 记住tensorboard文件夹的绝对路径，每个用户的路径不同，基本格式是`/data/home/用户名/logs/tensorboard`，这里是`/data/home/2401213359/logs/tensorboard`
 
 ![alt text](assets/assets/image-6.png)
@@ -130,14 +126,32 @@ logging_dir: ./logs/tensorboard
 ```
 改为
 ```
-logging_dir: /data/home/2401213359/logs/tensorboard
+logging_dir: /mnt/tensorboard 
+#此路径指的是容器内tensorboard数据输出路径，创建训练时我们要将家目录下的logs/tersorboard路径挂载到容器内的/mnt/tensorboard
 report_to: tensorboard
 ```
-其中`logging_dir`对应的内容就是4.1中创建的目录路径
+其中`logging_dir`是在指定容器中的路径，所以在提交作业时，我们要将家目录下的logs/tensorboard挂载到容器的一样路径下，如何挂载在下一章训练任务中有介绍
 
 其次在运行命令开头加上`pip install tensorboardX && `，用来安装必要环境
 
-得到的完整运行命令如下
+得到的完整运行命令会在下一章节创建训练任务填启动命令时使用
+
+### 4.3、创建训练任务
+
+创建训练任务与原先只有三点不同：  
+第一是运行命令改为4.2中修改后的运行命令，日志路径需要填写当前用户创建的路径）  
+第二是需要添加挂载点，填写你创建的tensorboard文件夹路径  
+第三是需要开启可视化训练，并挂载数据源，即你创建的日志文件夹路径
+
+* 加速卡：1
+* 最大运行时间：1 小时
+* 镜像来源选择远程镜像
+远程镜像地址：app-store-images.pku.edu.cn/hiyouga/llamafactory:0.9.4
+* 添加数据集: 我的数据集->identity-pku-assistant.json->选取适合版本
+* 添加模型：公共模型->Qwen2.5-1.5B-Instruct
+* 添加自定义挂载点： /data/home/demo_admin/logs/tensorboard 挂载到容器 /mnt/tensorboard
+* TensorBoard: 开启 ，源数据路径：/data/home/demo_admin/logs/tensorboard
+* 启动命令：
 ```
 pip install tensorboardX && echo "model_name_or_path: $SCOW_AI_MODEL_PATH
 
@@ -155,8 +169,8 @@ learning_rate: 1.0e-4
 lr_scheduler_type: cosine
 
 # 配置文件中的TensorBoard设置
-logging_dir: /data/home/2401213359/logs/tensorboard
-report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml && echo "### model
+logging_dir: /mnt/tensorboard
+report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity-pku-assistant.json\"}}" > /app/data/dataset_info.json && cd /app && llamafactory-cli train /app/config.yaml >> ${WORK_DIR}/llamafactory-cli-train.log 2>&1 && echo "### model
 model_name_or_path: $SCOW_AI_MODEL_PATH
 adapter_name_or_path: ${WORK_DIR}/llama-factory-output
 template: qwen
@@ -167,23 +181,14 @@ export_dir: ${WORK_DIR}/llama-factory-merged
 export_size: 5
 export_device: auto  # choices: [cpu, auto]
 export_legacy_format: false
-" > /app/lora_merge.yaml && llamafactory-cli export /app/lora_merge.yaml
+" > /app/lora_merge.yaml && llamafactory-cli export /app/lora_merge.yaml >> ${WORK_DIR}/llamafactory-cli-export.log 2>&1
 ```
-
-### 4.3、创建训练任务
-
-创建训练任务与原先只有三点不同，第一是运行命令改为4.2中修改后的运行命令（注意你的命令与教程的命令并不完全相同，日志路径需要填写你自己创建的路径）
-
-第二是需要添加挂载点，填写你创建的日志文件夹路径
-
-![alt text](assets/assets/image-10.png)
-
-第三是需要开启可视化训练，并挂载数据源，即你创建的日志文件夹路径
-
+训练配置：
 ![alt text](assets/assets/image-7.png)
-
-最后点击提交
-
+![alt text](assets/assets/image-4.png)
+资源配置：
+![alt text](assets/assets/image-5.png)
+确认信息无误后点击"提交"
 ### 4.4、查看可视化训练过程
 进入任务详情点击查看tensorboard
 
