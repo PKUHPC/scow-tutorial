@@ -18,7 +18,7 @@ Stable Diffusion 是由 Stability AI 开发的一个开源的深度学习模型�
 
 ## 1. 环境安装与应用创建
 ### 1.1 在shell中安装环境
-点击登录集群->未名二号 wm2-data01->打开，打开shell
+点击登录集群->打开，打开shell
 
 ![alt text](assets/image-12.png)
 ![alt text](assets/image-13.png)
