@@ -75,10 +75,9 @@ export_legacy_format: false
 ![alt text](assets/image-6.png)
 ![alt text](assets/image-7.png)
 
-训练完成之后进入作业目录可以看到训练完成的新模型在目录中，微调后的模型完整路径一般为`[家目录]/scow/ai/appData/[作业名]/0/llama-factory-merged`，注意最后的`/0/llama-factory-merged`，复制该路径便于后续测试
+训练完成之后进入作业目录可以看到训练完成的新模型在目录中，微调后的模型完整路径一般为[家目录]/scow/ai/appData/[作业名]/llama-factory-merged，注意最后的llama-factory-merged，复制该路径便于后续测试
 
 ![alt text](assets/image-8.png)
-![alt text](assets/image-9.png)
 ![alt text](assets/image-10.png)
 
 ## 4、推理验证
@@ -86,7 +85,7 @@ export_legacy_format: false
 
 ![alt text](assets/image-11.png)
 
-选择默认镜像，添加挂载点，填写前面微调模型的路径，添加环境变量`SCOW_AI_MODEL_PATH`，同样填写微调模型的路径
+选择默认镜像，添加挂载点，填写之前步骤微调模型的输出路径"[家目录]/scow/ai/appData/[作业名]/llama-factory-merged"，添加环境变量`SCOW_AI_MODEL_PATH`，同样填写微调模型的路径
 
 ![alt text](assets/image-12.png)
 
