@@ -96,7 +96,7 @@ tmux kill-session -t tutorial4  # 删除tmux会话,确认下载完成后再做
 1.6 输入命令 `pip install modelscope` ，并按 回车键。
 这里是安装了modelscope工具，此工具由模型下载的镜像网站提供
 
-1.7 拷贝命令 `modelscope download --model Qwen/Qwen3-4B-Instruct-2507 --local_dir ./Qwen/Qwen/Qwen3-4B-Instruct-2507` 粘贴到界面，并按 回车键。
+1.7 拷贝命令 `modelscope download --model Qwen/Qwen3-4B-Instruct-2507 --local_dir ./Qwen/Qwen3-4B-Instruct-2507` 粘贴到界面，并按 回车键。
 这里是通过刚安装的modelscope这个工具去镜像网站下载模型 Qwen3-4B-Instruct-2507
 
 ```bash
@@ -142,10 +142,11 @@ tmux kill-session -t tutorial4  # 删除tmux会话,确认下载完成后再做
 
 ![alt text](assets/assets/image-7.png)
 
-通过同样的方法我们添加模型Qwen2.5-1.5B-Instruct与latest版本，为tutorial9做模型准备。
+通过同样的方法我们下载并添加模型Qwen2.5-1.5B-Instruct与latest版本，为tutorial9等做模型准备。
 ![alt text](assets/assets/image-8.png)
 ![alt text](assets/assets/image-9.png)
-将用户个人添加的模型分享为公共模型，全平台用户可使用。
+
+[可选操作] 将用户个人添加的模型分享为公共模型，全平台用户可使用。
 ![alt text](assets/assets/image-10.png)
 
 ---
