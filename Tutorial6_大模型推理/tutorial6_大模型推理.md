@@ -69,11 +69,7 @@ pip install accelerate==1.10.1 -i https://mirrors.pku.edu.cn/pypi/web/simple
 2.2.3 torchvision
 拷贝下面命令，在右侧下半部的终端terminal中，粘贴命令
 ```bash
-<<<<<<< HEAD
-pip install torchvision==0.21.0 
-=======
-pip3 install torchvision==0.21.0 -i https://mirrors.pku.edu.cn/pypi/web/simple
->>>>>>> 127fcac (指定pip源为北大源)
+pip install torchvision==0.21.0 -i https://mirrors.pku.edu.cn/pypi/web/simple
 ```
 再按回车键，确保成功安装
 
