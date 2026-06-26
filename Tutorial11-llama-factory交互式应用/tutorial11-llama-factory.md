@@ -26,7 +26,8 @@
 
 1.3.1 应用配置中
 
-选择默认镜像：app-store-images.pku.edu.cn/pkuhpc/llama-factory-v1:nvidia-v1
+选择默认镜像：app-store-images.pku.edu.cn/pkuhpc/llama-factory-v1:nvidia-v1  
+默认启动命令： /Llama-Factory-tmp/run.sh
 
 1.3.2 添加模型和数据集
 
@@ -48,13 +49,14 @@
 
 
 
-点击 "刷新" 按钮，手动进行刷新后，作业状态转为 RUNNING，在这条作业的操作中，点击 进入 图标，浏览器将打开新的页面来展示新创建的LLaMA-Factory应用
+点击 "刷新" 按钮，手动进行刷新后，作业状态转为 RUNNING，在这条作业的操作中，点击 "进入" 图标，浏览器将打开新的页面来展示新创建的LLaMA-Factory应用。
 
 ![alt text](assets/image-77.png)
 
 进入新创建的LLaMA-Factory应用的浏览器界面，可以看到：
 前面步骤中选取的模型 Qwen2.5-7B-Instruct
-前面步骤中创建的数据集所在目录
+前面步骤中创建的数据集所在目录。  
+如果您习惯中文界面，将第一行的"Language:en"改为"Language:zh"
 
 ![alt text](assets/image-78.png)
 

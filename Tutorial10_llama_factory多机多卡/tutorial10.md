@@ -85,7 +85,7 @@ resume_from_checkpoint: null
 
 # 配置文件中的TensorBoard设置
 logging_dir: ./logs/tensorboard
-# report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity.json\"}}" > /app/data/dataset_info.json
+# report_to: tensorboard" > /app/config.yaml && echo "{\"identity\":{\"file_name\":\"${SCOW_AI_DATASET_PATH}/identity-pku-assistant.json\"}}" > /app/data/dataset_info.json
 ```
 
 运行完这条命令，可以运行 `cat /app/config.yaml` 和 `cat /app/data/dataset_info.json` 两条命令检查文件是否生成成功，正常情况下会打印出文件内容
