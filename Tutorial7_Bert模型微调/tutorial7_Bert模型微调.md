@@ -31,7 +31,7 @@ source ~/.bashrc
 conda create -n tutorial7 python=3.9
 Proceed ([y]/n)? y
 conda activate tutorial7
-
+conda install pip=23.3.1 -y
 
 # 安装依赖
 pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 \
@@ -47,7 +47,7 @@ evaluate==0.4.3 diffusers==0.32.1 sentencepiece==0.2.0 protobuf==5.29.2 decorato
 tmux new -s tutorial7  # 建立tmux会话
 source ~/.bashrc
 conda activate tutorial7
-
+conda intall pip=23.3.1 -y
 # 通过命令行下载模型和数据
 pip install modelscope==1.22.3 
 export HF_ENDPOINT=https://hf-mirror.com
@@ -101,7 +101,8 @@ tmux kill-session -t tutorial7  # 删除tmux会话
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from datasets import load_dataset
 import os
-
+os.environ["HF_DATASETS_OFFLINE"] = "1"  # 强制离线模式
+os.environ["TRANSFORMERS_OFFLINE"] = "1" # 同时为 transformers 设置离线模式
 model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=2)
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 

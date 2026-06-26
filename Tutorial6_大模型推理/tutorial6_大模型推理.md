@@ -54,7 +54,7 @@
 2.2.1 transformers
 拷贝下面命令，在右侧下半部的终端terminal中，粘贴命令 
 ```bash
-pip install transformers==4.57.1 
+pip install transformers==4.57.1 -i https://mirrors.pku.edu.cn/pypi/web/simple
 ```
 再按回车键，确保成功安装
 ![alt text](assets/image-27.png)
@@ -62,14 +62,14 @@ pip install transformers==4.57.1
 2.2.2 accelerate
 拷贝下面命令，在右侧下半部的终端terminal中，粘贴命令
 ```bash
-pip install accelerate==1.10.1 
+pip install accelerate==1.10.1 -i https://mirrors.pku.edu.cn/pypi/web/simple
 ```
 再按回车键，确保成功安装
 
 2.2.3 torchvision
 拷贝下面命令，在右侧下半部的终端terminal中，粘贴命令
 ```bash
-pip install torchvision==0.21.0 
+pip install torchvision==0.21.0 -i https://mirrors.pku.edu.cn/pypi/web/simple
 ```
 再按回车键，确保成功安装
 

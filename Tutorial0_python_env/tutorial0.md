@@ -30,7 +30,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-py313_25.9.1-1-Linux-x86_64.
 
 # 2. 安装
 chmod +x Miniconda3-py313_25.9.1-1-Linux-x86_64.sh
-./Miniconda3-py313_25.9.1-1-Linux-x86_64.sh  #最后选项要填yes
+./Miniconda3-py313_25.9.1-1-Linux-x86_64.sh  #You can undo this by running `conda init --reverse $SHELL`? [yes|no]选项要填yes
 
 # 3. 安装成功后可以删除安装包，节省存储空间
 rm -f Miniconda3-py313_25.9.1-1-Linux-x86_64.sh

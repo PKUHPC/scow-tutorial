@@ -29,7 +29,7 @@ Stable Diffusion 是由 Stability AI 开发的一个开源的深度学习模型�
 source ~/.bashrc
 conda create -n tutorial8 python=3.9
 conda activate tutorial8
-
+conda install pip=23.3.1 -y
 # 安装依赖
 pip install torch==2.3.1 numpy==1.26.4 matplotlib==3.8.4 pandas==2.2.2 \
 scikit-learn==1.5.0 pyyaml==6.0.2 torchvision==0.18.1 torchaudio==2.3.1 accelerate==1.2.1 \
